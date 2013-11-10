@@ -64,9 +64,9 @@ public class Game extends BasicGameState {
         for ( String str : stringList ) {
             String[] splitLine = str.split( ";" );
             int num = Integer.parseInt( splitLine[0] );
-            /*if ( num == number ) {
+            if ( num == number ) {
                 continue;
-            } */
+            }
             if ( splitLine[1].equals( Code.SEND_COORDINATES ) ) {
                 Coordinates coordinates = new Coordinates();
                 coordinates.number = num;
@@ -83,7 +83,7 @@ public class Game extends BasicGameState {
 
                 enemyShellContainer.add( new Shell( Float.parseFloat( splitLine[2] ),
                                                Float.parseFloat( splitLine[3] ),
-                                               Float.parseFloat( splitLine[4] ) + 100,
+                                               Float.parseFloat( splitLine[4] ),
                                                Float.parseFloat( splitLine[5] ),
                                                Integer.parseInt( splitLine[6] ),
                                                enemyShellImage.copy(),
@@ -112,7 +112,7 @@ public class Game extends BasicGameState {
             } else {
                 dY = coordinates.y - ship.getShiftY() - tempImg.getCenterOfRotationY();
             }
-            tempImg.draw( dX + 100, dY );
+            tempImg.draw( dX, dY );
         }
     }
 
@@ -140,7 +140,7 @@ public class Game extends BasicGameState {
         shellContainer.updateShells( map.getShiftX(), map.getShiftY() );
         enemyShellContainer.updateShells( map.getShiftX(), map.getShiftY() );
         HP -= enemyShellContainer.isCollids( ship.getX(), ship.getY(), ship.getRadius() );
-        System.out.println( HP + " / 100" );
+        graphics.drawString( String.valueOf( HP + " / 100" ), 0, 40 );
     }
 
     public void edit( List<Integer> list, Input input ) {
