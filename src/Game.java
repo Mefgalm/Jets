@@ -121,7 +121,7 @@ public class Game extends BasicGameState {
     public void render ( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics ) throws SlickException {
         ship.draw();
         try {
-            Thread.sleep( 3 );
+            Thread.sleep( 5 );
         } catch ( InterruptedException ex ) {
             System.out.print( "!!!" );
         }
