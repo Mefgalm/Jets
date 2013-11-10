@@ -11,12 +11,24 @@ import org.newdawn.slick.SlickException;
 public class Shell extends BasicObject {
     private int timeToDestroy;
     private int timer;
+    private boolean enemyShell;
 
     private double calCos;
     private double calSin;
 
-    public Shell ( float currentAngle, float radius , float x, float y, int timeToDestroy, float speed, Image image ) {
-        super( speed, currentAngle, radius , (float) ( x + Math.cos( currentAngle ) * radius ), (float) ( y - Math.sin( currentAngle ) * radius ), image );
+    public Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, float speed, Image image ) {
+        super( speed, currentAngle, (float) ( x + Math.cos( currentAngle ) * radius ), (float) ( y - Math.sin( currentAngle ) * radius ), image );
+        this.timeToDestroy = timeToDestroy;
+
+        calCos = Math.cos( currentAngle ) * speed;
+        calSin = Math.sin( currentAngle ) * speed;
+
+        image.setRotation( (float) Math.toDegrees( -currentAngle ) );
+        timer = 0;
+    }
+
+    public Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed ) {
+        super( speed, currentAngle, radius, x, y, image );
         this.timeToDestroy = timeToDestroy;
 
         calCos = Math.cos( currentAngle ) * speed;
@@ -45,7 +57,7 @@ public class Shell extends BasicObject {
     public String toString() {
         StringBuilder sb = new StringBuilder(  );
         sb.append( super.getCurrentAngle() ).append( ";" ).
-           append( super.getRadius() ).append( ";" ).
+           append( super.getX() ).append( ";" ).
            append( super.getX() ).append( ";" ).
            append( super.getY() ).append( ";" ).
            append( timeToDestroy ).append( ";" ).

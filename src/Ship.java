@@ -73,10 +73,12 @@ public class Ship extends BasicObject {
                     currentAngle += angleSpeed;
                 }
             }
+            return true;
         } else if ( deltaAngle < angleSpeed ) {
             currentAngle = (float) finalAngle;
+            return true;
         }
-        return currentAngle == finalAngle;
+        return false;
     }
 
     public void moveForward( ) {
@@ -94,8 +96,8 @@ public class Ship extends BasicObject {
     }
 
     public void moveBack( ) {
-        double calCos = Math.cos( currentAngle ) * speed / 2;
-        double calSin = Math.sin( currentAngle ) * speed / 2;
+        double calCos = Math.cos( currentAngle ) * speed;
+        double calSin = Math.sin( currentAngle ) * speed;
 
         if ( canMove( x - calCos, y + calSin ) ) {
             x -= calCos;
@@ -104,8 +106,8 @@ public class Ship extends BasicObject {
     }
 
     public void moveLeft( ) {
-        double calCos = Math.cos( currentAngle - HALF_PI ) * speed * 0.8;
-        double calSin = Math.sin( currentAngle - HALF_PI ) * speed * 0.8;
+        double calCos = Math.cos( currentAngle - HALF_PI ) * speed;
+        double calSin = Math.sin( currentAngle - HALF_PI ) * speed;
 
         if ( canMove( x - calCos, y + calSin ) ) {
             x -= calCos;
@@ -115,8 +117,8 @@ public class Ship extends BasicObject {
 
 
     public void moveRight( ) {
-        double calCos = Math.cos( currentAngle + HALF_PI ) * speed * 0.8;
-        double calSin = Math.sin( currentAngle + HALF_PI ) * speed * 0.8;
+        double calCos = Math.cos( currentAngle + HALF_PI ) * speed;
+        double calSin = Math.sin( currentAngle + HALF_PI ) * speed;
 
         if ( canMove( x - calCos, y + calSin ) ) {
             x -= calCos;
