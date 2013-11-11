@@ -29,10 +29,11 @@ public class ShellContainer {
 
     public int isCollids( float x, float y, float radius ) {
         int numberOfCollids = 0;
-        for ( Shell shell : shellList ) {
-            if ( shell.getRadius() + radius > Math.sqrt( Math.pow( x - shell.getX(), 2 ) + Math.pow( y - shell.getY(), 2 ) ) ) {
-                System.out.println( shell.getRadius() );
-                animationContainer.add( shell.getX(), shell.getY(), 12 );
+        for ( int i = 0; i < shellList.size() && shellList.get( i ) != null; i++ ) {
+            if ( shellList.get( i ).getRadius() + radius
+                    > Math.sqrt( Math.pow( x - shellList.get( i ).getX(), 2 ) + Math.pow( y - shellList.get( i ).getY(), 2 ) ) ) {
+                animationContainer.add( shellList.get( i ).getX(), shellList.get( i ).getY(), 12 );
+                shellList.remove( shellList.get( i ) );
                 ++numberOfCollids;
             }
         }

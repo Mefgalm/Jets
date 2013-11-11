@@ -26,7 +26,7 @@ public class Ship extends BasicObject {
     private float accuracy;
 
     public Ship( float speed, float angleSpeed, Image image, int height, int weight, Map map ) throws SlickException {
-        super( speed, 0, 40 , weight / 2, height / 2, image );
+        super( speed, 0, 10 , weight / 2, height / 2, image );
 
         this.map = map;
         this.angleSpeed =  angleSpeed * ONE_DEGREE;
