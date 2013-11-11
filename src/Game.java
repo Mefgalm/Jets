@@ -39,10 +39,6 @@ public class Game extends BasicGameState {
 
     public Game ( int ID ) {
         this.ID = ID;
-
-        server = new Server();
-        shellContainer = new ShellContainer();
-        enemyShellContainer = new ShellContainer();
     }
 
     @Override
@@ -54,9 +50,12 @@ public class Game extends BasicGameState {
     public void init ( GameContainer gameContainer, StateBasedGame stateBasedGame ) throws SlickException {
         shipImage = new Image( "ship.png" );
         map = new Map( "map.jpg", gameContainer.getHeight(), gameContainer.getWidth() );
-        ship = new Ship( 25.0f, 15.0f, shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
+        ship = new Ship( 5.0f, 3.0f, shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
         shellImage = new Image( "shell.png" );
         enemyShellImage = new Image ( "enemyShell.png" );
+        enemyShellContainer = new ShellContainer();
+        server = new Server();
+        shellContainer = new ShellContainer();
         new Thread( new ReceiveData() ).start();
     }
 

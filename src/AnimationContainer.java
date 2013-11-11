@@ -42,7 +42,7 @@ public class AnimationContainer {
 
     public void update() {
         for ( int i = 0; i < animationDataList.size(); i++ ) {
-            if ( !animationDataList.get( i ).update() ) {
+            if ( animationDataList.get( i ).update() ) {
                 animationDataList.remove( animationDataList.get( i ) );
             }
         }

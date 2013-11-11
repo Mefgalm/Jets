@@ -28,7 +28,7 @@ public abstract class BasicObject {
         this.y = y;
         this.currentAngle = currentAngle;
         this.image = image;
-        this.radius = (float) Math.random() * ( image.getCenterOfRotationX() / 2) + image.getCenterOfRotationX() / 2;
+        this.radius = 40;
     }
 
     public BasicObject ( float speed, float currentAngle, float radius, float x, float y, Image image )  {

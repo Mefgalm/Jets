@@ -12,15 +12,18 @@ public class AnimationData {
     public float y;
     public Animation animation;
     public int duration;
+    public int frameNumber;
 
     public AnimationData( float x, float y, Animation animation, int duration ) {
         this.x = x;
         this.y = y;
         this.animation = animation;
         this.duration = duration;
+        frameNumber = duration;
     }
 
     public boolean update() {
+        animation.setCurrentFrame( frameNumber - duration );
         return --duration < 0;
     }
 }
