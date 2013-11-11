@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class ShellContainer {
     private List<Shell> shellList = new LinkedList<Shell>(  );
+    //private
 
     public void add ( Shell shell ) {
         shellList.add( shell );
@@ -28,7 +29,7 @@ public class ShellContainer {
     public int isCollids( float x, float y, float radius ) {
         int numberOfCollids = 0;
         for ( Shell shell : shellList ) {
-            if ( shell.getRadius() + radius < Math.sqrt( Math.pow( x - shell.getX(), 2 ) + Math.pow( y - shell.getY(), 2 ) ) ) {
+            if ( shell.getRadius() + radius > Math.sqrt( Math.pow( x - shell.getX(), 2 ) + Math.pow( y - shell.getY(), 2 ) ) ) {
                 ++numberOfCollids;
             }
         }

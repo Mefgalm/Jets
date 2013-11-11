@@ -54,15 +54,15 @@ public class Game extends BasicGameState {
     public void init ( GameContainer gameContainer, StateBasedGame stateBasedGame ) throws SlickException {
         shipImage = new Image( "ship.png" );
         map = new Map( "map.jpg", gameContainer.getHeight(), gameContainer.getWidth() );
-        ship = new Ship( 5.0f, 15.0f, shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
+        ship = new Ship( 25.0f, 15.0f, shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
         shellImage = new Image( "shell.png" );
         enemyShellImage = new Image ( "enemyShell.png" );
         new Thread( new ReceiveData() ).start();
     }
 
     private void getShipsPosition() {
-        for ( String str : stringList ) {
-            String[] splitLine = str.split( ";" );
+        for ( int i = 0; i < stringList.size(); i++ ) {
+            String[] splitLine = stringList.get( i ).split( ";" );
             int num = Integer.parseInt( splitLine[0] );
             if ( num == number ) {
                 continue;
@@ -80,7 +80,6 @@ public class Game extends BasicGameState {
             }
             if ( splitLine[1].equals( Code.SEND_SHELL ) ) {
                 //Shell ( float currentAngle, float radius , float x, float y, int timeToDestroy, float speed, Image image )
-
                 enemyShellContainer.add( new Shell( Float.parseFloat( splitLine[2] ),
                                                Float.parseFloat( splitLine[3] ),
                                                Float.parseFloat( splitLine[4] ),
@@ -140,7 +139,10 @@ public class Game extends BasicGameState {
         shellContainer.updateShells( map.getShiftX(), map.getShiftY() );
         enemyShellContainer.updateShells( map.getShiftX(), map.getShiftY() );
         HP -= enemyShellContainer.isCollids( ship.getX(), ship.getY(), ship.getRadius() );
-        graphics.drawString( String.valueOf( HP + " / 100" ), 0, 40 );
+        graphics.drawString( String.valueOf( HP + " / 400" ), 0, 40 );
+        /*if ( HP <= 0 ) {
+            gameContainer.exit();
+        }*/
     }
 
     public void edit( List<Integer> list, Input input ) {

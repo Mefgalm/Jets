@@ -11,7 +11,6 @@ import org.newdawn.slick.SlickException;
 public class Shell extends BasicObject {
     private int timeToDestroy;
     private int timer;
-    private boolean enemyShell;
 
     private double calCos;
     private double calSin;
@@ -57,7 +56,7 @@ public class Shell extends BasicObject {
     public String toString() {
         StringBuilder sb = new StringBuilder(  );
         sb.append( super.getCurrentAngle() ).append( ";" ).
-           append( super.getX() ).append( ";" ).
+           append( super.getRadius() ).append( ";" ).
            append( super.getX() ).append( ";" ).
            append( super.getY() ).append( ";" ).
            append( timeToDestroy ).append( ";" ).
