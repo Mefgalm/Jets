@@ -1,4 +1,5 @@
-import org.newdawn.slick.*;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 
 /**
  * Created with IntelliJ IDEA.

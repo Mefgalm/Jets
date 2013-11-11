@@ -30,7 +30,7 @@ public class AnimationContainer {
                                        new Image( "boom/9.PNG" ),
                                        new Image( "boom/10.PNG" ),
                                        new Image( "boom/11.PNG" ),
-                                       new Image( "boom/12.PNG" )}, 50, false );
+                                       new Image( "boom/12.PNG" )}, 50 );
         } catch ( SlickException seEx ) {
             System.out.println( "Can't load animation's images" );
         }
@@ -44,6 +44,8 @@ public class AnimationContainer {
         for ( int i = 0; i < animationDataList.size(); i++ ) {
             if ( animationDataList.get( i ).update() ) {
                 animationDataList.remove( animationDataList.get( i ) );
+            } else {
+                animationDataList.get( i ).animation.draw( animationDataList.get( i ).x, animationDataList.get( i ).y );
             }
         }
     }

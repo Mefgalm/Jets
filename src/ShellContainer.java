@@ -31,6 +31,7 @@ public class ShellContainer {
         int numberOfCollids = 0;
         for ( Shell shell : shellList ) {
             if ( shell.getRadius() + radius > Math.sqrt( Math.pow( x - shell.getX(), 2 ) + Math.pow( y - shell.getY(), 2 ) ) ) {
+                System.out.println( shell.getRadius() );
                 animationContainer.add( shell.getX(), shell.getY(), 12 );
                 ++numberOfCollids;
             }
