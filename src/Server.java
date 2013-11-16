@@ -19,7 +19,7 @@ public class Server {
 
     public Server() {
         try {
-            socket = new Socket( "127.0.0.1", Code.PORT );
+            socket = new Socket( "92.113.255.174", Code.PORT );
             socket.setTcpNoDelay( true );
 
             streamIn = new DataInputStream( new BufferedInputStream( socket.getInputStream() ) );

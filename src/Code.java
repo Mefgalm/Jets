@@ -10,4 +10,5 @@ final public class Code {
     public static final String SET_ID = "0";
     public static final String SEND_COORDINATES = "1";
     public static final String SEND_SHELL = "2";
+    public static final String DELETE_SHELL = "3";
 }

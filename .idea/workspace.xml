@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7838602-6715-418a-9d42-ea8b429f295f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AnimationContainer.java" afterPath="$PROJECT_DIR$/src/AnimationContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Code.java" afterPath="$PROJECT_DIR$/src/Code.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.java" afterPath="$PROJECT_DIR$/src/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server.java" afterPath="$PROJECT_DIR$/src/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Shell.java" afterPath="$PROJECT_DIR$/src/Shell.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ShellContainer.java" afterPath="$PROJECT_DIR$/src/ShellContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ship.java" afterPath="$PROJECT_DIR$/src/Ship.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Jets.iws" />
@@ -15,20 +13,20 @@
     <file path="/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384006052289" ignored="false" />
     <file path="/fragment.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384091760033" ignored="false" />
     <file path="/a.dummy" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384547345000" ignored="false" />
-    <file path="/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384609605694" ignored="false" />
+    <file path="/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384610978483" ignored="false" />
     <file path="/Menu.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382259273597" ignored="false" />
     <file path="/TestMenu.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1381574717008" ignored="false" />
-    <file path="/Dummy.txt" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384609564961" ignored="false" />
+    <file path="/Dummy.txt" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384609663518" ignored="false" />
     <file path="/Ship.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384184327566" ignored="false" />
     <file path="/Map.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382114538612" ignored="false" />
     <file path="/BasicObject.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384099613140" ignored="false" />
     <file path="/Shell.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384547029434" ignored="false" />
-    <file path="/ShellContainer.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384547276038" ignored="false" />
+    <file path="/ShellContainer.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384610868009" ignored="false" />
     <file path="$PROJECT_DIR$/../JetsServer/src/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382361609778" ignored="false" />
     <file path="$PROJECT_DIR$/../JetsServer/src/AcceptClient.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384179651222" ignored="false" />
     <file path="/AcceptClient.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384107184604" ignored="false" />
     <file path="$PROJECT_DIR$/../JetsServer/src/Code.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383925385406" ignored="false" />
-    <file path="/Code.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383998721376" ignored="false" />
+    <file path="/Code.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384610348373" ignored="false" />
     <file path="/Server.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384021768927" ignored="false" />
     <file path="/Coordinates.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383997120515" ignored="false" />
     <file path="$PROJECT_DIR$/../Server/.idea/workspace.xml" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382553557683" ignored="false" />
@@ -141,7 +139,7 @@
       <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="41" selection-start="3470" selection-end="3470" vertical-scroll-proportion="0.19672132">
+            <state line="85" column="4" selection-start="3392" selection-end="3392" vertical-scroll-proportion="0.6393443">
               <folding />
             </state>
           </provider>
@@ -150,7 +148,7 @@
       <file leaf-file-name="Server.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="43" selection-start="550" selection-end="550" vertical-scroll-proportion="0.0">
+            <state line="21" column="48" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -168,7 +166,7 @@
       <file leaf-file-name="ShellContainer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShellContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="42" selection-start="1568" selection-end="1568" vertical-scroll-proportion="0.0">
+            <state line="44" column="86" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#284#291#0" expanded="true" />
               </folding>
@@ -197,7 +195,7 @@
       <file leaf-file-name="Code.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Code.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
+            <state line="8" column="83" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -225,15 +223,15 @@
         <option value="$PROJECT_DIR$/src/TestMenu.java" />
         <option value="$PROJECT_DIR$/src/Menu.java" />
         <option value="$PROJECT_DIR$/src/Map.java" />
-        <option value="$PROJECT_DIR$/src/Code.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Coordinates.java" />
         <option value="$PROJECT_DIR$/src/AnimationData.java" />
         <option value="$PROJECT_DIR$/src/BasicObject.java" />
         <option value="$PROJECT_DIR$/src/AnimationContainer.java" />
         <option value="$PROJECT_DIR$/src/Ship.java" />
-        <option value="$PROJECT_DIR$/src/Server.java" />
         <option value="$PROJECT_DIR$/src/Shell.java" />
+        <option value="$PROJECT_DIR$/src/Server.java" />
+        <option value="$PROJECT_DIR$/src/Code.java" />
         <option value="$PROJECT_DIR$/src/ShellContainer.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
@@ -587,7 +585,11 @@
       <created>1384183114546</created>
       <updated>1384183114546</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="!">
+      <created>1384609666951</created>
+      <updated>1384609666951</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -745,7 +747,9 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/src.zip!/java/lang/Math.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="625" column="28" selection-start="25186" selection-end="25186" vertical-scroll-proportion="0.36512667" />
+        <state line="625" column="28" selection-start="25186" selection-end="25186" vertical-scroll-proportion="0.36512667">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AnimationContainer.java">
@@ -758,20 +762,6 @@
     <entry file="file://$PROJECT_DIR$/src/AnimationData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="5" selection-start="703" selection-end="703" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Code.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="22" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -797,16 +787,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server.java">
+    <entry file="file://$PROJECT_DIR$/src/BasicObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="43" selection-start="550" selection-end="550" vertical-scroll-proportion="0.0">
+        <state line="77" column="10" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.7704918">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BasicObject.java">
+    <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="10" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.7704918">
+        <state line="35" column="22" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="48" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Code.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="83" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -820,7 +824,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShellContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="42" selection-start="1568" selection-end="1568" vertical-scroll-proportion="0.0">
+        <state line="44" column="86" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#284#291#0" expanded="true" />
           </folding>
@@ -829,7 +833,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="41" selection-start="3470" selection-end="3470" vertical-scroll-proportion="0.19672132">
+        <state line="85" column="4" selection-start="3392" selection-end="3392" vertical-scroll-proportion="0.6393443">
           <folding />
         </state>
       </provider>
