@@ -90,9 +90,8 @@ public class Game extends BasicGameState {
                                                Float.parseFloat( splitLine[8] ) ) );
             }
             if ( splitLine[1].equals( Code.DELETE_SHELL) ) {
-                int eShip = Integer.parseInt( splitLine[0] );
-                enemyShellContainer.remove( eShip, Integer.parseInt( splitLine[2] ) );
-                shellContainer.remove( eShip, Integer.parseInt( splitLine[2] ) );
+                enemyShellContainer.remove( Integer.parseInt( splitLine[2] ), Integer.parseInt( splitLine[3] ) );
+                shellContainer.remove( Integer.parseInt( splitLine[2] ), Integer.parseInt( splitLine[3] ) );
             }
         }
     }
@@ -209,7 +208,7 @@ public class Game extends BasicGameState {
         }
         if ( input.isMouseButtonDown( Input.MOUSE_LEFT_BUTTON ) && timeBetweenShoot == 0 ) {
             timeBetweenShoot = 4;
-            Shell shell = new Shell( ship.getCurrentAngle() + ship.getAccuracy(),
+            Shell shell = new Shell( shipNumber, ship.getCurrentAngle() + ship.getAccuracy(),
                     5,
                     ship.getX(), ship.getY(),
                     50, 14.0f,
