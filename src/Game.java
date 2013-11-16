@@ -53,8 +53,8 @@ public class Game extends BasicGameState {
         ship = new Ship( 5.0f, 3.0f, shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
         shellImage = new Image( "shell.png" );
         enemyShellImage = new Image ( "enemyShell.png" );
-        enemyShellContainer = new ShellContainer( map, server, shipNumber );
         server = new Server();
+        enemyShellContainer = new ShellContainer( map, server, shipNumber );
         shellContainer = new ShellContainer( map, server, shipNumber );
         new Thread( new ReceiveData() ).start();
     }
@@ -89,7 +89,8 @@ public class Game extends BasicGameState {
                                                Float.parseFloat( splitLine[8] ) ) );
             }
             if ( splitLine[1].equals( Code.DELETE_SHELL) ) {
-                enemyShellContainer.remove( Integer.parseInt( splitLine[0] ), Integer.parseInt( splitLine[2] ) );
+                //enemyShellContainer.remove( Integer.parseInt( splitLine[0] ), Integer.parseInt( splitLine[2] ) );
+                System.out.println( splitLine[2] );
                 shellContainer.remove( Integer.parseInt( splitLine[0] ), Integer.parseInt( splitLine[2] ) );
             }
         }

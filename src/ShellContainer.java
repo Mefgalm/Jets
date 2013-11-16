@@ -52,7 +52,7 @@ public class ShellContainer {
 
     public void remove ( int shipNumber, int shellNumber ) {
         for ( int i = 0; i < shellList.size(); i++ ) {
-            if ( shellList.get( i ).getNumber() == shellNumber && this.shipNumber == shipNumber ) {
+            if ( shellList.get( i ).getNumber() == shellNumber) {
                 shellList.remove( shellList.get( i ) );
                 animationContainer.add( shellList.get( i ).getX() - map.getShiftX(), shellList.get( i ).getY() - map.getShiftY(), 12 );
             }

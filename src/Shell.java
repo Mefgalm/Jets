@@ -22,7 +22,7 @@ public class Shell extends BasicObject {
         super( speed, currentAngle, (float) ( x + Math.cos( currentAngle ) * radius ), (float) ( y - Math.sin( currentAngle ) * radius ), image );
         this.timeToDestroy = timeToDestroy;
         if ( count > 100 ) {
-            number = 0;
+            count = 0;
         } else {
             number = count;
         }
