@@ -13,12 +13,10 @@ public class ShellContainer {
     private AnimationContainer animationContainer = new AnimationContainer();
     private Map map;
     private Server server;
-    private int shipNumber;
 
-    public ShellContainer( Map map, Server server, int shipNumber ) {
+    public ShellContainer( Map map, Server server ) {
         this.server = server;
         this.map = map;
-        this.shipNumber = shipNumber;
     }
 
     public void add ( Shell shell ) {
@@ -42,7 +40,7 @@ public class ShellContainer {
             if ( shellList.get( i ).getRadius() + ship.getRadius()
                     > Math.sqrt( Math.pow( ship.getX() - shellList.get( i ).getX(), 2 ) + Math.pow( ship.getY() - shellList.get( i ).getY(), 2 ) ) ) {
                 animationContainer.add( shellList.get( i ).getX() - map.getShiftX(), shellList.get( i ).getY() - map.getShiftY(), 12 );
-                server.sendShell( Code.DELETE_SHELL, String.valueOf( shipNumber ) + ";" + String.valueOf( shellList.get( i ).getNumber() ) );
+                server.sendShell( Code.DELETE_SHELL,  String.valueOf( shellList.get( i ).getNumber() ) );
                 shellList.remove( shellList.get( i ) );
                 numberOfCollide = true;
             }
@@ -52,9 +50,9 @@ public class ShellContainer {
 
     public void remove ( int shipNumber, int shellNumber ) {
         for ( int i = 0; i < shellList.size(); i++ ) {
-            if ( shellList.get( i ).getNumber() == shellNumber) {
+            if ( shellList.get( i ).getNumber() == shellNumber && shellList.get( i ).getShipNumber() == shipNumber ) {
+                animationContainer.add( shellList.get( i ).getX() - map.getShiftX() - 16, shellList.get( i ).getY() - map.getShiftY() - 16, 12 );
                 shellList.remove( shellList.get( i ) );
-                animationContainer.add( shellList.get( i ).getX() - map.getShiftX(), shellList.get( i ).getY() - map.getShiftY(), 12 );
             }
         }
     }

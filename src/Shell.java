@@ -16,6 +16,7 @@ public class Shell extends BasicObject {
     private double calSin;
 
     private int number;
+    private int shipNumber;
     private static int count = 0;
 
     public Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, float speed, Image image ) {
@@ -35,8 +36,9 @@ public class Shell extends BasicObject {
         timer = 0;
     }
 
-    public Shell ( int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed ) {
+    public Shell ( int shipNumber ,int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed ) {
         super( speed, currentAngle, radius, x, y, image );
+        this.shipNumber = shipNumber;
         this.timeToDestroy = timeToDestroy;
         this.number = number;
 
@@ -63,6 +65,10 @@ public class Shell extends BasicObject {
 
     public int getNumber() {
         return number;
+    }
+
+    public int getShipNumber() {
+        return shipNumber;
     }
 
     @Override

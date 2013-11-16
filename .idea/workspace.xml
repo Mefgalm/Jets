@@ -12,15 +12,15 @@
     <file path="/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384006052289" ignored="false" />
     <file path="/fragment.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384091760033" ignored="false" />
     <file path="/a.dummy" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384547345000" ignored="false" />
-    <file path="/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384611471563" ignored="false" />
+    <file path="/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384612683955" ignored="false" />
     <file path="/Menu.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382259273597" ignored="false" />
     <file path="/TestMenu.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1381574717008" ignored="false" />
-    <file path="/Dummy.txt" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384611019255" ignored="false" />
+    <file path="/Dummy.txt" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384611562271" ignored="false" />
     <file path="/Ship.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384184327566" ignored="false" />
     <file path="/Map.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382114538612" ignored="false" />
     <file path="/BasicObject.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384099613140" ignored="false" />
-    <file path="/Shell.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384547029434" ignored="false" />
-    <file path="/ShellContainer.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384611331496" ignored="false" />
+    <file path="/Shell.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384612804404" ignored="false" />
+    <file path="/ShellContainer.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384612823475" ignored="false" />
     <file path="$PROJECT_DIR$/../JetsServer/src/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382361609778" ignored="false" />
     <file path="$PROJECT_DIR$/../JetsServer/src/AcceptClient.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384179651222" ignored="false" />
     <file path="/AcceptClient.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384107184604" ignored="false" />
@@ -138,7 +138,7 @@
       <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="45" selection-start="5349" selection-end="5349" vertical-scroll-proportion="1.709389">
+            <state line="89" column="95" selection-start="3740" selection-end="3740" vertical-scroll-proportion="0.47540984">
               <folding />
             </state>
           </provider>
@@ -156,7 +156,7 @@
       <file leaf-file-name="Shell.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Shell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="49" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
+            <state line="70" column="26" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -165,7 +165,7 @@
       <file leaf-file-name="ShellContainer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShellContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="65" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0">
+            <state line="50" column="113" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#284#291#0" expanded="true" />
               </folding>
@@ -230,9 +230,9 @@
         <option value="$PROJECT_DIR$/src/Ship.java" />
         <option value="$PROJECT_DIR$/src/Server.java" />
         <option value="$PROJECT_DIR$/src/Code.java" />
-        <option value="$PROJECT_DIR$/src/ShellContainer.java" />
-        <option value="$PROJECT_DIR$/src/Shell.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/Shell.java" />
+        <option value="$PROJECT_DIR$/src/ShellContainer.java" />
       </list>
     </option>
   </component>
@@ -592,7 +592,11 @@
       <created>1384611020965</created>
       <updated>1384611020965</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="!">
+      <created>1384611563779</created>
+      <updated>1384611563779</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -632,7 +636,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23372465" sideWeight="0.77616924" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16542156" sideWeight="0.77616924" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16542156" sideWeight="0.77616924" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22383073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -783,23 +787,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="5" selection-start="5465" selection-end="5465" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BasicObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="10" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.7704918">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="22" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -811,6 +801,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="22" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="183" column="5" selection-start="5465" selection-end="5465" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="48" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0">
@@ -818,25 +822,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="26" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShellContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="65" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0">
+        <state line="50" column="113" selection-start="1825" selection-end="1825" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#284#291#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="49" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="45" selection-start="5349" selection-end="5349" vertical-scroll-proportion="1.709389">
+        <state line="89" column="95" selection-start="3740" selection-end="3740" vertical-scroll-proportion="0.47540984">
           <folding />
         </state>
       </provider>
