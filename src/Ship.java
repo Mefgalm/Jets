@@ -22,11 +22,12 @@ public class Ship extends BasicObject {
     private int halfHeight;
     private int halfWidth;
     private Map map;
+    private float rlX, rlY;
 
     private float accuracy;
 
     public Ship( float speed, float angleSpeed, Image image, int height, int weight, Map map ) throws SlickException {
-        super( speed, 0, 10 , weight / 2, height / 2, image );
+        super( speed, 0, 30 , weight / 2, height / 2, image );
 
         this.map = map;
         this.angleSpeed =  angleSpeed * ONE_DEGREE;
@@ -129,25 +130,24 @@ public class Ship extends BasicObject {
 
     public void draw() {
         map.draw( x, y );
-        float dX, dY;
             if ( map.getShiftX() > 0 ) {
-                dX = halfWidth;
+                rlX = halfWidth;
                 if ( map.getShiftX() == map.getMapWidth() - width) {
-                    dX = x - ( map.getMapWidth() - width);
+                    rlX = x - ( map.getMapWidth() - width);
                 }
             } else {
-                dX = x;
+                rlX = x;
             }
             if ( map.getShiftY() > 0 ) {
-                dY = halfHeight;
+                rlY = halfHeight;
                 if ( map.getShiftY() == map.getMapHeight() - height ) {
-                    dY = y - ( map.getMapHeight() - height );
+                    rlY = y - ( map.getMapHeight() - height );
                 }
             } else {
-                dY = y;
+                rlY = y;
             }
         image.setRotation( (float) Math.toDegrees( -currentAngle ) );
-        image.draw( dX - image.getCenterOfRotationX(), dY - image.getCenterOfRotationY() );
+        image.draw( rlX - image.getCenterOfRotationX(), rlY - image.getCenterOfRotationY() );
     }
 
     public float getShiftX() {
@@ -172,5 +172,13 @@ public class Ship extends BasicObject {
 
     public int getWidth() {
         return width;
+    }
+
+    public float getRlX() {
+        return rlX;
+    }
+
+    public float getRlY() {
+        return rlY;
     }
 }

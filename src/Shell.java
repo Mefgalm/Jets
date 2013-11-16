@@ -15,9 +15,18 @@ public class Shell extends BasicObject {
     private double calCos;
     private double calSin;
 
+    private int number;
+    private static int count = 0;
+
     public Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, float speed, Image image ) {
         super( speed, currentAngle, (float) ( x + Math.cos( currentAngle ) * radius ), (float) ( y - Math.sin( currentAngle ) * radius ), image );
         this.timeToDestroy = timeToDestroy;
+        if ( count > 100 ) {
+            number = 0;
+        } else {
+            number = count;
+        }
+        count++;
 
         calCos = Math.cos( currentAngle ) * speed;
         calSin = Math.sin( currentAngle ) * speed;
@@ -26,9 +35,10 @@ public class Shell extends BasicObject {
         timer = 0;
     }
 
-    public Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed ) {
+    public Shell ( int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed ) {
         super( speed, currentAngle, radius, x, y, image );
         this.timeToDestroy = timeToDestroy;
+        this.number = number;
 
         calCos = Math.cos( currentAngle ) * speed;
         calSin = Math.sin( currentAngle ) * speed;
@@ -47,15 +57,19 @@ public class Shell extends BasicObject {
         image.destroy();
     }
 
-
     void draw ( float sX, float sY ) {
         image.draw( x - sX - image.getCenterOfRotationX(), y - sY - image.getCenterOfRotationY() );
+    }
+
+    public int getNumber() {
+        return number;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(  );
-        sb.append( super.getCurrentAngle() ).append( ";" ).
+        sb.append( number ).append( ";" ).
+           append( super.getCurrentAngle() ).append( ";" ).
            append( super.getRadius() ).append( ";" ).
            append( super.getX() ).append( ";" ).
            append( super.getY() ).append( ";" ).

@@ -28,7 +28,7 @@ public class Game extends BasicGameState {
     private Map map;
 
     private Image shipImage;
-    private int number;
+    private int shipNumber;
     private int HP = 100;
 
     private Server server;
@@ -43,7 +43,7 @@ public class Game extends BasicGameState {
 
     @Override
     public int getID () {
-        return ID;  //To change body of implemented methods use File | Settings | File Templates.
+        return ID;
     }
 
     @Override
@@ -53,9 +53,9 @@ public class Game extends BasicGameState {
         ship = new Ship( 5.0f, 3.0f, shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
         shellImage = new Image( "shell.png" );
         enemyShellImage = new Image ( "enemyShell.png" );
-        enemyShellContainer = new ShellContainer();
+        enemyShellContainer = new ShellContainer( map );
         server = new Server();
-        shellContainer = new ShellContainer();
+        shellContainer = new ShellContainer( map );
         new Thread( new ReceiveData() ).start();
     }
 
@@ -63,7 +63,7 @@ public class Game extends BasicGameState {
         for ( int i = 0; i < stringList.size(); i++ ) {
             String[] splitLine = stringList.get( i ).split( ";" );
             int num = Integer.parseInt( splitLine[0] );
-            if ( num == number ) {
+            if ( num == shipNumber ) {
                 continue;
             }
             if ( splitLine[1].equals( Code.SEND_COORDINATES ) ) {
@@ -79,14 +79,14 @@ public class Game extends BasicGameState {
             }
             if ( splitLine[1].equals( Code.SEND_SHELL ) ) {
                 //Shell ( float currentAngle, float radius , float x, float y, int timeToDestroy, float speed, Image image )
-                enemyShellContainer.add( new Shell( Float.parseFloat( splitLine[2] ),
+                enemyShellContainer.add( new Shell( Integer.parseInt( splitLine[2] ),
                                                Float.parseFloat( splitLine[3] ),
                                                Float.parseFloat( splitLine[4] ),
                                                Float.parseFloat( splitLine[5] ),
-                                               Integer.parseInt( splitLine[6] ),
+                                               Float.parseFloat( splitLine[6] ),
+                                               Integer.parseInt( splitLine[7] ),
                                                enemyShellImage.copy(),
-                                               Float.parseFloat( splitLine[7] ) ) );
-                //System.out.println(  System.currentTimeMillis() - Long.parseLong( splitLine[8] ) );
+                                               Float.parseFloat( splitLine[8] ) ) );
             }
         }
     }
@@ -117,7 +117,7 @@ public class Game extends BasicGameState {
     private boolean isCode( String line ) {
         String[] splitLine = line.split( ";" );
         if ( splitLine[0].equals( Code.SET_ID ) ) {
-            number = Integer.parseInt( String.valueOf( splitLine[1] ) );
+            shipNumber = Integer.parseInt( String.valueOf( splitLine[1] ) );
             return true;
         }
         return false;
@@ -135,9 +135,11 @@ public class Game extends BasicGameState {
         getShipsPosition();
         drawShips();
         stringList.clear();
-        shellContainer.updateShells( map.getShiftX(), map.getShiftY() );
-        enemyShellContainer.updateShells( map.getShiftX(), map.getShiftY() );
-        HP -= enemyShellContainer.isCollids( ship.getX(), ship.getY(), ship.getRadius() );
+        shellContainer.updateShells(  );
+        enemyShellContainer.updateShells(  );
+        if ( enemyShellContainer.isCollide( ship ) > 0 ) {
+            graphics.drawString( "!!!!!!", 200, 0 );
+        }
         graphics.drawString( String.valueOf( HP + " / 400" ), 0, 40 );
         /*if ( HP <= 0 ) {
             gameContainer.exit();
@@ -202,7 +204,7 @@ public class Game extends BasicGameState {
         if ( input.isMouseButtonDown( Input.MOUSE_LEFT_BUTTON ) && timeBetweenShoot == 0 ) {
             timeBetweenShoot = 4;
             Shell shell = new Shell( ship.getCurrentAngle() + ship.getAccuracy(),
-                    BasicObject.chooseRadius( shipImage ),
+                    5,
                     ship.getX(), ship.getY(),
                     50, 14.0f,
                     shellImage.copy() );
@@ -212,8 +214,6 @@ public class Game extends BasicGameState {
         if ( ship.updateAngle( Mouse.getX(), Mouse.getY() ) && keyPressList.isEmpty() ) {
             server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
         }
-
-
 
         edit( keyPressedList, input );
     }

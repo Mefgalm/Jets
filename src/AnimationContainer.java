@@ -15,6 +15,8 @@ import java.util.List;
 public class AnimationContainer {
     private List<AnimationData> animationDataList = new LinkedList<AnimationData>(  );
     private Animation animation;
+    private int halfHeight;
+    private int halfWidth;
 
     public AnimationContainer() {
         try {
@@ -34,6 +36,8 @@ public class AnimationContainer {
         } catch ( SlickException seEx ) {
             System.out.println( "Can't load animation's images" );
         }
+        halfHeight = animation.getHeight() / 2;
+        halfWidth = animation.getWidth() / 2;
     }
 
     public void add( float x, float y, int duration ) {
@@ -45,7 +49,7 @@ public class AnimationContainer {
             if ( animationDataList.get( i ).update() ) {
                 animationDataList.remove( animationDataList.get( i ) );
             } else {
-                animationDataList.get( i ).animation.draw( animationDataList.get( i ).x, animationDataList.get( i ).y );
+                animationDataList.get( i ).animation.draw( animationDataList.get( i ).x - halfWidth, animationDataList.get( i ).y - halfHeight );
             }
         }
     }
