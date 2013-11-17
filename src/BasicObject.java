@@ -26,7 +26,6 @@ public abstract class BasicObject {
         this.y = y;
         this.currentAngle = currentAngle;
         this.image = image;
-        this.radius = radius;
     }
 
     public BasicObject ( float speed, float currentAngle, float radius, float x, float y, Image image )  {

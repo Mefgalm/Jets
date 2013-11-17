@@ -2,41 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7838602-6715-418a-9d42-ea8b429f295f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Addon.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Login.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BasicObject.java" afterPath="$PROJECT_DIR$/src/BasicObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Code.java" afterPath="$PROJECT_DIR$/src/Code.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Coordinates.java" afterPath="$PROJECT_DIR$/src/Coordinates.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.java" afterPath="$PROJECT_DIR$/src/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Server.java" afterPath="$PROJECT_DIR$/src/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Shell.java" afterPath="$PROJECT_DIR$/src/Shell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ShellContainer.java" afterPath="$PROJECT_DIR$/src/ShellContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ship.java" afterPath="$PROJECT_DIR$/src/Ship.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Jets.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384006052289" ignored="false" />
+    <file path="/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384690322480" ignored="false" />
     <file path="/fragment.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384091760033" ignored="false" />
     <file path="/a.dummy" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384547345000" ignored="false" />
-    <file path="/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384680865006" ignored="false" />
+    <file path="/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384704647469" ignored="false" />
     <file path="/Menu.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382259273597" ignored="false" />
     <file path="/TestMenu.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1381574717008" ignored="false" />
-    <file path="/Dummy.txt" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384679254151" ignored="false" />
-    <file path="/Ship.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384184327566" ignored="false" />
+    <file path="/Dummy.txt" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384694767908" ignored="false" />
+    <file path="/Ship.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384700198529" ignored="false" />
     <file path="/Map.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382114538612" ignored="false" />
     <file path="/BasicObject.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384099613140" ignored="false" />
     <file path="/Shell.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384614112528" ignored="false" />
-    <file path="/ShellContainer.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384613621344" ignored="false" />
+    <file path="/ShellContainer.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384683658553" ignored="false" />
     <file path="$PROJECT_DIR$/../JetsServer/src/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382361609778" ignored="false" />
-    <file path="$PROJECT_DIR$/../JetsServer/src/AcceptClient.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384179651222" ignored="false" />
-    <file path="/AcceptClient.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384107184604" ignored="false" />
-    <file path="$PROJECT_DIR$/../JetsServer/src/Code.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383925385406" ignored="false" />
-    <file path="/Code.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384610348373" ignored="false" />
-    <file path="/Server.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384021768927" ignored="false" />
+    <file path="$PROJECT_DIR$/../JetsServer/src/AcceptClient.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384704476881" ignored="false" />
+    <file path="/AcceptClient.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384703338371" ignored="false" />
+    <file path="$PROJECT_DIR$/../JetsServer/src/Code.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384701129707" ignored="false" />
+    <file path="/Code.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384701126928" ignored="false" />
+    <file path="/Server.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384691429291" ignored="false" />
     <file path="/Coordinates.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383997120515" ignored="false" />
     <file path="$PROJECT_DIR$/../Server/.idea/workspace.xml" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382553557683" ignored="false" />
-    <file path="$PROJECT_DIR$/../TestJets/src/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382631234906" ignored="false" />
-    <file path="$PROJECT_DIR$/../TestJets/src/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382631392538" ignored="false" />
+    <file path="$PROJECT_DIR$/../TestJets/src/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384689622899" ignored="false" />
+    <file path="$PROJECT_DIR$/../TestJets/src/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384689716146" ignored="false" />
     <file path="$PROJECT_DIR$/../TestJets/src/Server.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382631355030" ignored="false" />
-    <file path="$PROJECT_DIR$/../JetsServer/src/ClientData.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384107171978" ignored="false" />
+    <file path="$PROJECT_DIR$/../JetsServer/src/ClientData.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384691496748" ignored="false" />
     <file path="/ClientData.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384107171166" ignored="false" />
     <file path="$PROJECT_DIR$/../fStudy/src/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383996907117" ignored="false" />
     <file path="/AnimationContainer.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384184147389" ignored="false" />
     <file path="/AnimationData.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384181686008" ignored="false" />
+    <file path="/Form.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384686340947" ignored="false" />
+    <file path="/Login.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384697632471" ignored="false" />
+    <file path="$PROJECT_DIR$/../TestJets/src/Login.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384689604012" ignored="false" />
+    <file path="$PROJECT_DIR$/../JetsServer/src/Client.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384701009807" ignored="false" />
+    <file path="/Client.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384701008818" ignored="false" />
+    <file path="/Addon.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1384700629621" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +64,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="jar://$PROJECT_DIR$/slick/lib/slick.jar!/org/newdawn/slick/opengl/renderer/ImmediateModeOGLRenderer.class" line="76" class="org.newdawn.slick.opengl.renderer.ImmediateModeOGLRenderer" package="org.newdawn.slick.opengl.renderer">
@@ -107,7 +121,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -117,19 +130,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Ship.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Ship.java">
+      <file leaf-file-name="Coordinates.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="5" selection-start="5465" selection-end="5465" vertical-scroll-proportion="0.0">
+            <state line="38" column="81" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Coordinates.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
+      <file leaf-file-name="BasicObject.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BasicObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="22" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+            <state line="27" column="27" selection-start="670" selection-end="670" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,7 +151,41 @@
       <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="48" selection-start="3110" selection-end="3110" vertical-scroll-proportion="0.6732523">
+            <state line="108" column="36" selection-start="4393" selection-end="4393" vertical-scroll-proportion="0.46960485">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1273#1282#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ship.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ship.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="34" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Addon.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Addon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="45" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Login.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="0" selection-start="2103" selection-end="2103" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,7 +194,7 @@
       <file leaf-file-name="Server.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="58" selection-start="1777" selection-end="1777" vertical-scroll-proportion="0.0">
+            <state line="77" column="67" selection-start="2874" selection-end="2874" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -162,28 +209,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShellContainer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ShellContainer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="30" selection-start="1854" selection-end="1855" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="7" selection-start="978" selection-end="978" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Map.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="5" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.0">
+            <state line="6" column="10" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -192,7 +221,7 @@
       <file leaf-file-name="Code.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Code.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="83" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
+            <state line="16" column="51" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -217,19 +246,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/TestMenu.java" />
         <option value="$PROJECT_DIR$/src/Menu.java" />
         <option value="$PROJECT_DIR$/src/Map.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Coordinates.java" />
         <option value="$PROJECT_DIR$/src/AnimationData.java" />
-        <option value="$PROJECT_DIR$/src/BasicObject.java" />
         <option value="$PROJECT_DIR$/src/AnimationContainer.java" />
-        <option value="$PROJECT_DIR$/src/Ship.java" />
-        <option value="$PROJECT_DIR$/src/Code.java" />
-        <option value="$PROJECT_DIR$/src/ShellContainer.java" />
         <option value="$PROJECT_DIR$/src/Shell.java" />
+        <option value="$PROJECT_DIR$/src/BasicObject.java" />
+        <option value="$PROJECT_DIR$/src/ShellContainer.java" />
+        <option value="$PROJECT_DIR$/src/Form.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Server.java" />
+        <option value="$PROJECT_DIR$/src/Login.java" />
+        <option value="$PROJECT_DIR$/src/Ship.java" />
+        <option value="$PROJECT_DIR$/src/Addon.java" />
+        <option value="$PROJECT_DIR$/src/Code.java" />
+        <option value="$PROJECT_DIR$/src/Coordinates.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
@@ -266,7 +297,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -301,7 +332,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,12 +349,12 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -602,7 +633,11 @@
       <created>1384613692451</created>
       <updated>1384613692451</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="!">
+      <created>1384681145109</created>
+      <updated>1384681145109</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -632,6 +667,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2505568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22494432" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -646,7 +682,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22383073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -741,47 +776,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="17" selection-start="4191" selection-end="4240" vertical-scroll-proportion="0.3323398">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/src.zip!/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.704918" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/src.zip!/java/lang/StrictMath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="612" column="32" selection-start="24253" selection-end="24253" vertical-scroll-proportion="0.3323398" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/src.zip!/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="625" column="28" selection-start="25186" selection-end="25186" vertical-scroll-proportion="0.36512667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AnimationContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="13" selection-start="2214" selection-end="2214" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AnimationData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="5" selection-start="703" selection-end="703" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="7" selection-start="978" selection-end="978" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -793,39 +790,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BasicObject.java">
+    <entry file="jar://$PROJECT_DIR$/slick/lib/lwjgl.jar!/org/lwjgl/opengl/Display.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="10" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.7704918">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Code.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="83" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="5" selection-start="5465" selection-end="5465" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="22" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="148" column="24" selection-start="6949" selection-end="6949" vertical-scroll-proportion="0.3464696" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShellContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="30" selection-start="1854" selection-end="1855" vertical-scroll-proportion="0.0">
+        <state line="43" column="50" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/slick/lib/slick.jar!/org/newdawn/slick/AppGameContainer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="0" selection-start="3378" selection-end="3378" vertical-scroll-proportion="0.7914692" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/slick/lib/slick.jar!/org/newdawn/slick/state/StateBasedGame.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="45" selection-start="1207" selection-end="1207" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Shell.java">
@@ -835,17 +819,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="10" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Addon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="45" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="2103" selection-end="2103" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="58" selection-start="1777" selection-end="1777" vertical-scroll-proportion="0.0">
+        <state line="77" column="67" selection-start="2874" selection-end="2874" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Code.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="51" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="34" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BasicObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="27" selection-start="670" selection-end="670" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="81" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="48" selection-start="3110" selection-end="3110" vertical-scroll-proportion="0.6732523">
-          <folding />
+        <state line="108" column="36" selection-start="4393" selection-end="4393" vertical-scroll-proportion="0.46960485">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1273#1282#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

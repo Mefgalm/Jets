@@ -56,6 +56,31 @@ public class Server {
         }
     }
 
+    public void send( String code ) {
+        StringBuilder sb = new StringBuilder(  );
+        try {
+            sb.append( code );
+            streamOut.writeUTF( sb.toString() );
+            streamOut.flush();
+        } catch ( IOException ioEx ) {
+            System.err.println( "Can't send new coordinates of ship" );
+        }
+    }
+
+    public void sendNewUser( String code, String name, int HP, float x, float y, float angle ) {
+        StringBuilder sb = new StringBuilder(  );
+        try {
+            sb.append( code ).append( ";" ).append( name ).append( ";" ).
+            append( String.valueOf( HP ) ).append( ";" ).append( String.valueOf( x ) ).
+            append( ";" ).append( String.valueOf( y ) ).append( ";" ).append( String.valueOf( angle ) );
+            streamOut.writeUTF( sb.toString() );
+            streamOut.flush();
+        } catch ( IOException ioEx ) {
+            System.err.println( "Can't send new coordinates of ship" );
+        }
+    }
+
+
     public String relieveData() throws IOException {
         try {
             return streamIn.readUTF();

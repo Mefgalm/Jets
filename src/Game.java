@@ -1,9 +1,11 @@
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
-import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.*;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 /**
@@ -30,15 +32,18 @@ public class Game extends BasicGameState {
     private Image shipImage;
     private int shipNumber;
     private int HP = 100;
+    private Image hpBarImage;
 
     private Server server;
 
     private int timeBetweenShoot = 0;
     private List<String> stringList = Collections.synchronizedList( new ArrayList<String>(  ) );
     private Set<Coordinates> coordinatesSet = new LinkedHashSet<Coordinates>(  );
+    private List<Integer> hpList = new ArrayList<Integer>(  );
 
-    public Game ( int ID ) {
+    public Game ( int ID, Server server ) {
         this.ID = ID;
+        this.server = server;
     }
 
     @Override
@@ -48,12 +53,31 @@ public class Game extends BasicGameState {
 
     @Override
     public void init ( GameContainer gameContainer, StateBasedGame stateBasedGame ) throws SlickException {
+        String line;
+        StringBuilder sb = new StringBuilder(  );
+        try {
+            BufferedReader reader = new BufferedReader( new InputStreamReader(new FileInputStream( "name.txt" ) ) );
+            while ((line = reader.readLine()) != null) {
+                sb.append( line );
+            }
+        } catch ( Exception e )  {
+            System.out.println( "not found" );
+        }
+
+        server.sendNewUser( Code.ENTER_NEW_USER, sb.toString(), 100, 500, 500, 0 );
+        //server.send( Code.REQUIRE_FOR_NUMBER );
+       /* try {
+            shipNumber = Integer.parseInt( server.relieveData() );
+            System.out.println( shipNumber );
+        } catch ( IOException ioeX ) {
+            System.out.println( "Can't reacive ship NUmber " );
+        } */
         shipImage = new Image( "ship.png" );
+        hpBarImage = new Image( "hpBar.png" );
         map = new Map( "map.jpg", gameContainer.getHeight(), gameContainer.getWidth() );
-        ship = new Ship( 5.0f, 3.0f, shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
+        ship = new Ship( 5.0f, 3.0f, 500, 500, sb.toString(), shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
         shellImage = new Image( "shell.png" );
         enemyShellImage = new Image ( "enemyShell.png" );
-        server = new Server();
         enemyShellContainer = new ShellContainer( map, server );
         shellContainer = new ShellContainer( map, server );
         new Thread( new ReceiveData() ).start();
@@ -63,11 +87,11 @@ public class Game extends BasicGameState {
         for ( int i = 0; i < stringList.size(); i++ ) {
             String[] splitLine = stringList.get( i ).split( ";" );
             int num = Integer.parseInt( splitLine[0] );
-            if ( num == shipNumber ) {
+            if ( num == shipNumber && !splitLine[1].equals( Code.SEND_ALL_DATE ) ) {
                 continue;
             }
             if ( splitLine[1].equals( Code.SEND_COORDINATES ) ) {
-                Coordinates coordinates = new Coordinates();
+                /*Coordinates coordinates = new Coordinates();
                 coordinates.number = num;
                 coordinates.x = Float.parseFloat( splitLine[2] );
                 coordinates.y = Float.parseFloat( splitLine[3] );
@@ -75,11 +99,10 @@ public class Game extends BasicGameState {
                 if ( !coordinatesSet.add( coordinates ) ) {
                     coordinatesSet.remove( new Coordinates( num, 0, 0, 0 ) );
                 }
-                coordinatesSet.add( coordinates );
+                coordinatesSet.add( coordinates ); */
             }
             if ( splitLine[1].equals( Code.SEND_SHELL ) ) {
                 //Shell ( int shipNumber, int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed )
-                System.out.println( splitLine[0] );
                 enemyShellContainer.add( new Shell( Integer.parseInt( splitLine[0] ),
                                                Integer.parseInt( splitLine[2] ),
                                                Float.parseFloat( splitLine[3] ),
@@ -91,8 +114,17 @@ public class Game extends BasicGameState {
                                                Float.parseFloat( splitLine[8] ) ) );
             }
             if ( splitLine[1].equals( Code.DELETE_SHELL) ) {
+                System.out.println( stringList.get( i ) );
                 enemyShellContainer.remove( Integer.parseInt( splitLine[2] ), Integer.parseInt( splitLine[3] ) );
                 shellContainer.remove( Integer.parseInt( splitLine[2] ), Integer.parseInt( splitLine[3] ) );
+            }
+            if ( splitLine[1].equals( Code.SEND_ALL_DATE ) ) {
+                shipNumber = Integer.parseInt( splitLine[0] );
+                /*String[] splitLineSlash = stringList.get( i ).split( "/" );
+                for ( int j = 0; j < splitLineSlash.length; j++ ) {
+                    splitLine = splitLineSlash[j].split( ";" );
+                    coordinatesSet.add( new Coordinates( splitLine[0] ) );
+                }*/
             }
         }
     }
@@ -120,19 +152,9 @@ public class Game extends BasicGameState {
         }
     }
 
-    private boolean isCode( String line ) {
-        String[] splitLine = line.split( ";" );
-        if ( splitLine[0].equals( Code.SET_ID ) ) {
-            shipNumber = Integer.parseInt( String.valueOf( splitLine[1] ) );
-            return true;
-        }
-        return false;
-    }
-
     @Override
     public void render ( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics ) throws SlickException {
-        ship.draw();
-
+        ship.draw( graphics );
         try {
             Thread.sleep( 5 );
         } catch ( InterruptedException ex ) {
@@ -146,10 +168,6 @@ public class Game extends BasicGameState {
         if ( enemyShellContainer.isCollide( ship ) ) {
             HP -= 1;
         }
-        graphics.drawString( String.valueOf( HP + " / 400" ), 0, 40 );
-        /*if ( HP <= 0 ) {
-            gameContainer.exit();
-        }*/
     }
 
     public void edit( List<Integer> list, Input input ) {
@@ -169,7 +187,7 @@ public class Game extends BasicGameState {
     }
 
     @Override
-    public void update ( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
+    public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
         Input input = gameContainer.getInput();
         edit( keyPressList, input );
 
@@ -217,6 +235,7 @@ public class Game extends BasicGameState {
             shellContainer.add( shell );
             server.sendShell( Code.SEND_SHELL, shell.toString() );
         }
+
         if ( ship.updateAngle( Mouse.getX(), Mouse.getY() ) && keyPressList.isEmpty() ) {
             server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
         }
@@ -230,9 +249,7 @@ public class Game extends BasicGameState {
             while ( true ) {
                 try {
                     String line = server.relieveData();
-                    if ( !isCode( line ) ) {
-                        stringList.add( line );
-                    }
+                    stringList.add( line );
                 } catch ( IOException ioEx ) {
                     System.err.println( "Dannie ne prinyati" );
                 }

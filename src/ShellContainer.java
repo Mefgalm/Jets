@@ -41,6 +41,7 @@ public class ShellContainer {
                     > Math.sqrt( Math.pow( ship.getX() - shellList.get( i ).getX(), 2 ) + Math.pow( ship.getY() - shellList.get( i ).getY(), 2 ) ) ) {
                 animationContainer.add( shellList.get( i ).getX() - map.getShiftX(), shellList.get( i ).getY() - map.getShiftY(), 12 );
                 server.sendShell( Code.DELETE_SHELL, String.valueOf( shellList.get( i ).getShipNumber() ) + ";" + String.valueOf( shellList.get( i ).getNumber() ) );
+                server.sendShell( Code.DAMAGE, "1" );
                 shellList.remove( shellList.get( i ) );
                 numberOfCollide = true;
             }

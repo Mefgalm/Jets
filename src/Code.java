@@ -11,4 +11,8 @@ final public class Code {
     public static final String SEND_COORDINATES = "1";
     public static final String SEND_SHELL = "2";
     public static final String DELETE_SHELL = "3";
+    public static final String DAMAGE = "4";
+    public static final String ENTER_NEW_USER = "5";
+    public static final String REQUIRE_FOR_NUMBER = "6";
+    public static final String SEND_ALL_DATE = "7";
 }

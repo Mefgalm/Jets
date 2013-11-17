@@ -1,5 +1,7 @@
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Graphics;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,9 +27,11 @@ public class Ship extends BasicObject {
     private float rlX, rlY;
 
     private float accuracy;
+    private Addon addon;
 
-    public Ship( float speed, float angleSpeed, Image image, int height, int weight, Map map ) throws SlickException {
-        super( speed, 0, 30 , weight / 2, height / 2, image );
+    public Ship( float speed, float angleSpeed, int x, int y, String name, Image image, int height, int weight, Map map ) throws SlickException {
+        super( speed, 0, 30 , x, y, image );
+        addon = new Addon( name, image );
 
         this.map = map;
         this.angleSpeed =  angleSpeed * ONE_DEGREE;
@@ -128,7 +132,7 @@ public class Ship extends BasicObject {
         }
     }
 
-    public void draw() {
+    public void draw( Graphics g ) {
         map.draw( x, y );
             if ( map.getShiftX() > 0 ) {
                 rlX = halfWidth;
@@ -146,6 +150,7 @@ public class Ship extends BasicObject {
             } else {
                 rlY = y;
             }
+        addon.draw( rlX, rlY, g );
         image.setRotation( (float) Math.toDegrees( -currentAngle ) );
         image.draw( rlX - image.getCenterOfRotationX(), rlY - image.getCenterOfRotationY() );
     }

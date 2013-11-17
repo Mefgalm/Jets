@@ -4,16 +4,20 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class Main extends StateBasedGame {
-    private final static int game = 0;
+    public final static int game = 0;
+    public final static int login = 1;
+    public static AppGameContainer app;
 
     public Main ( String name ) {
         super( name );
-        addState( new Game( game ) );
+        Server server = new Server();
+        addState( new Login( login, server ) );
+        addState( new Game( game, server ) );
     }
 
     public static void main(String [] arguments) {
         try {
-            AppGameContainer app = new AppGameContainer( new Main( "Jets" ) );
+            app = new AppGameContainer( new Main( "Jets" ) );
             app.setDisplayMode( 900, 900, false );
             app.setTargetFrameRate( 60 );
             app.setVSync( true );
@@ -26,7 +30,6 @@ public class Main extends StateBasedGame {
 
     @Override
     public void initStatesList ( GameContainer gameContainer ) throws SlickException {
-        //this.getState( game ).init( gameContainer, this );
-        this.enterState( game );
+        this.enterState( login );
     }
 }
