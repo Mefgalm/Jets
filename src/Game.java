@@ -78,8 +78,9 @@ public class Game extends BasicGameState {
                 coordinatesSet.add( coordinates );
             }
             if ( splitLine[1].equals( Code.SEND_SHELL ) ) {
-                //Shell ( float currentAngle, float radius , float x, float y, int timeToDestroy, float speed, Image image )
-                enemyShellContainer.add( new Shell( shipNumber,
+                //Shell ( int shipNumber, int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed )
+                System.out.println( splitLine[0] );
+                enemyShellContainer.add( new Shell( Integer.parseInt( splitLine[0] ),
                                                Integer.parseInt( splitLine[2] ),
                                                Float.parseFloat( splitLine[3] ),
                                                Float.parseFloat( splitLine[4] ),

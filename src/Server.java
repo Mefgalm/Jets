@@ -19,7 +19,7 @@ public class Server {
 
     public Server() {
         try {
-            socket = new Socket( "92.113.255.174", Code.PORT );
+            socket = new Socket( "127.0.0.1", Code.PORT );
             socket.setTcpNoDelay( true );
 
             streamIn = new DataInputStream( new BufferedInputStream( socket.getInputStream() ) );
@@ -48,7 +48,7 @@ public class Server {
     public void sendShell( String code, String data ) {
         StringBuilder sb = new StringBuilder(  );
         try {
-            sb.append( code ).append( ";" ).append( data ).append( ";" ).append( 0 );
+            sb.append( code ).append( ";" ).append( data );
             streamOut.writeUTF( sb.toString() );
             streamOut.flush();
         } catch ( IOException ioEx ) {

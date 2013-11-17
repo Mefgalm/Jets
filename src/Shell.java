@@ -23,7 +23,6 @@ public class Shell extends BasicObject {
         super( speed, currentAngle, (float) ( x + Math.cos( currentAngle ) * radius ), (float) ( y - Math.sin( currentAngle ) * radius ), image );
         this.timeToDestroy = timeToDestroy;
         this.shipNumber = shipNumber;
-        System.out.println( shipNumber );
         if ( count > 100 ) {
             count = 0;
         } else {
