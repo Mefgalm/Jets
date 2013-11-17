@@ -38,7 +38,7 @@ public class Game extends BasicGameState {
 
     private int timeBetweenShoot = 0;
     private List<String> stringList = Collections.synchronizedList( new ArrayList<String>(  ) );
-    private Set<Coordinates> coordinatesSet = new LinkedHashSet<Coordinates>(  );
+    private List<Coordinates> coordinatesSet = new LinkedList<Coordinates>(  );
     private List<Integer> hpList = new ArrayList<Integer>(  );
 
     public Game ( int ID, Server server ) {
@@ -91,15 +91,13 @@ public class Game extends BasicGameState {
                 continue;
             }
             if ( splitLine[1].equals( Code.SEND_COORDINATES ) ) {
-                /*Coordinates coordinates = new Coordinates();
-                coordinates.number = num;
-                coordinates.x = Float.parseFloat( splitLine[2] );
-                coordinates.y = Float.parseFloat( splitLine[3] );
-                coordinates.angle = Float.parseFloat(splitLine[4]);
-                if ( !coordinatesSet.add( coordinates ) ) {
-                    coordinatesSet.remove( new Coordinates( num, 0, 0, 0 ) );
+                int index = coordinatesSet.indexOf( new Coordinates( Integer.parseInt( splitLine[0] ) ) );
+                if ( index != -1 ) {
+                    coordinatesSet.get( index ).changeData( Float.parseFloat( splitLine[2] ),
+                                                            Float.parseFloat( splitLine[3] ),
+                                                            Float.parseFloat( splitLine[4] ) );
                 }
-                coordinatesSet.add( coordinates ); */
+
             }
             if ( splitLine[1].equals( Code.SEND_SHELL ) ) {
                 //Shell ( int shipNumber, int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed )
@@ -120,11 +118,26 @@ public class Game extends BasicGameState {
             }
             if ( splitLine[1].equals( Code.SEND_ALL_DATE ) ) {
                 shipNumber = Integer.parseInt( splitLine[0] );
-                /*String[] splitLineSlash = stringList.get( i ).split( "/" );
+                String[] splitLineSlash = stringList.get( i ).split( "/" );
+                if ( splitLine.length < 4 ) return;
                 for ( int j = 0; j < splitLineSlash.length; j++ ) {
-                    splitLine = splitLineSlash[j].split( ";" );
-                    coordinatesSet.add( new Coordinates( splitLine[0] ) );
-                }*/
+                    if ( j == 0 ) {
+                        //Coordinates( String name, int HP, float x, float y, float angle, int shipNum )
+                        coordinatesSet.add( new Coordinates( splitLineSlash[2],
+                                            Integer.parseInt( splitLineSlash[3] ),
+                                            Float.parseFloat( splitLineSlash[4] ),
+                                            Float.parseFloat( splitLineSlash[5] ),
+                                            Float.parseFloat( splitLineSlash[6] ),
+                                            Integer.parseInt( splitLineSlash[7] )) );
+                    } else {
+                        coordinatesSet.add( new Coordinates( splitLineSlash[0],
+                                            Integer.parseInt( splitLineSlash[1] ),
+                                            Float.parseFloat( splitLineSlash[2] ),
+                                            Float.parseFloat( splitLineSlash[3] ),
+                                            Float.parseFloat( splitLineSlash[4] ),
+                                            Integer.parseInt( splitLineSlash[5] )) );
+                    }
+                }
             }
         }
     }

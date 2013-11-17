@@ -26,8 +26,6 @@ public class Coordinates {
         this.shipNum = shipNum;
     }
 
-
-
     public void changeData( float x, float y, float angle ) {
         this.x = x;
         this.y = y;
