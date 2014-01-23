@@ -13,13 +13,13 @@ import java.rmi.UnknownHostException;
  * To change this template use File | Settings | File Templates.
  */
 public class Server {
-    private Socket socket;
-    private DataInputStream streamIn;
-    private DataOutputStream streamOut;
+    public Socket socket;
+    public DataInputStream streamIn;
+    public DataOutputStream streamOut;
 
     public Server() {
         try {
-            socket = new Socket( "94.178.105.14", Code.PORT );
+            socket = new Socket( "127.0.0.1", Code.PORT );
             socket.setTcpNoDelay( true );
 
             streamIn = new DataInputStream( new BufferedInputStream( socket.getInputStream() ) );
@@ -37,7 +37,7 @@ public class Server {
             sb.append( code ).append( ";" ).
                append( x ).append( ";" ).
                append( y ).append( ";" ).
-               append( currentAngle ).append( ";" ).append( System.currentTimeMillis() );
+               append( currentAngle );
             streamOut.writeUTF( sb.toString() );
             streamOut.flush();
         } catch ( IOException ioEx ) {
@@ -61,6 +61,14 @@ public class Server {
         try {
             sb.append( code );
             streamOut.writeUTF( sb.toString() );
+            streamOut.flush();
+        } catch ( IOException ioEx ) {
+            System.err.println( "Can't send new coordinates of ship" );
+        }
+    }
+
+    public void setInt ( int i ) {
+        try {
             streamOut.flush();
         } catch ( IOException ioEx ) {
             System.err.println( "Can't send new coordinates of ship" );

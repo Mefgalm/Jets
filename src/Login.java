@@ -40,9 +40,9 @@ public class Login extends BasicGameState {
 
     @Override
     public void init ( GameContainer gameContainer, StateBasedGame stateBasedGame ) throws SlickException {
+        Main.app.setDisplayMode( 200, 150, false );
         backgroundImage = new Image( "enterForm.jpg" );
         launchImage = new Image( "button.jpg" );
-        Main.app.setDisplayMode( 200, 150, false );
         nameTextField = new TextField(gameContainer, new TrueTypeFont(new Font(Font.SERIF,Font.BOLD, 14),false), 10, 50, 180, 25);
     }
 

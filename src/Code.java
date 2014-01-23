@@ -15,4 +15,5 @@ final public class Code {
     public static final String ENTER_NEW_USER = "5";
     public static final String REQUIRE_FOR_NUMBER = "6";
     public static final String SEND_ALL_DATE = "7";
+    public static final String EXIT_USER = "8";
 }
