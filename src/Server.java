@@ -13,6 +13,7 @@ import java.rmi.UnknownHostException;
  * To change this template use File | Settings | File Templates.
  */
 public class Server {
+<<<<<<< HEAD
     public Socket socket;
     public DataInputStream streamIn;
     public DataOutputStream streamOut;
@@ -20,6 +21,15 @@ public class Server {
     public Server() {
         try {
             socket = new Socket( "127.0.0.1", Code.PORT );
+=======
+    private Socket socket;
+    private DataInputStream streamIn;
+    private DataOutputStream streamOut;
+
+    public Server() {
+        try {
+            socket = new Socket( "94.178.105.14", Code.PORT );
+>>>>>>> origin/master
             socket.setTcpNoDelay( true );
 
             streamIn = new DataInputStream( new BufferedInputStream( socket.getInputStream() ) );
@@ -37,7 +47,11 @@ public class Server {
             sb.append( code ).append( ";" ).
                append( x ).append( ";" ).
                append( y ).append( ";" ).
+<<<<<<< HEAD
                append( currentAngle );
+=======
+               append( currentAngle ).append( ";" ).append( System.currentTimeMillis() );
+>>>>>>> origin/master
             streamOut.writeUTF( sb.toString() );
             streamOut.flush();
         } catch ( IOException ioEx ) {
@@ -67,6 +81,7 @@ public class Server {
         }
     }
 
+<<<<<<< HEAD
     public void setInt ( int i ) {
         try {
             streamOut.flush();
@@ -75,6 +90,8 @@ public class Server {
         }
     }
 
+=======
+>>>>>>> origin/master
     public void sendNewUser( String code, String name, int HP, float x, float y, float angle ) {
         StringBuilder sb = new StringBuilder(  );
         try {
