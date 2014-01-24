@@ -32,7 +32,7 @@ public class Game extends BasicGameState {
     private int shipNumber;
     private int HP = 100;
     private Image hpBarImage;
-    private Map map;
+    public static Map map;
 
     private Server server;
 
@@ -76,8 +76,8 @@ public class Game extends BasicGameState {
         ship = new Ship( 5.0f, 3.0f, 500, 500, sb.toString(), shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
         shellImage = new Image( "shell.png" );
         enemyShellImage = new Image ( "enemyShell.png" );
-        enemyShellContainer = new ShellContainer( map, server );
-        shellContainer = new ShellContainer( map, server );
+        enemyShellContainer = new ShellContainer( map );
+        shellContainer = new ShellContainer( map );
         new Thread( new ReceiveData() ).start();
     }
 
@@ -104,6 +104,25 @@ public class Game extends BasicGameState {
         }
     }
 
+    private void updatePlayersShell() {
+        for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
+            entry.getValue().updateShells();
+        }
+    }
+
+    private void collideShip() {
+        for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
+            Object[] objects = entry.getValue().collide( ship );
+            for ( int i = 0; i < objects.length; i++ ) {
+                try {
+                    server.streamOut.writeUTF( Code.DELETE_SHELL + ";" + objects[i] + ";" + entry.getKey() );
+                } catch ( IOException e ) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+            }
+        }
+    }
+
     @Override
     public void render ( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics ) throws SlickException {
         ship.draw( graphics );
@@ -112,12 +131,14 @@ public class Game extends BasicGameState {
         } catch ( InterruptedException ex ) {
             System.out.print( "!!!" );
         }
-        //getShipsPosition();
         calculate();
         drawShips();
+
+        collideShip();
+
         stringList.clear();
-        shellContainer.updateShells(  );
-        enemyShellContainer.updateShells(  );
+        updatePlayersShell();
+        shellContainer.updateShells();
     }
 
     public void edit( List<Integer> list, Input input ) {
@@ -173,23 +194,22 @@ public class Game extends BasicGameState {
         ship.updateAngle( Mouse.getX(), Mouse.getY() );
         server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
 
-        /*if ( timeBetweenShoot > 0 ) {
+        if ( timeBetweenShoot > 0 ) {
             timeBetweenShoot--;
         }
         if ( input.isMouseButtonDown( Input.MOUSE_LEFT_BUTTON ) && timeBetweenShoot == 0 ) {
-            timeBetweenShoot = 4;
-            Shell shell = new Shell( shipNumber, ship.getCurrentAngle() + ship.getAccuracy(),
-                    5,
+            timeBetweenShoot = 6;
+            Shell shell = new Shell( ship.getCurrentAngle(),   //Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, float speed, Image image )
+                    20, 10,
                     ship.getX(), ship.getY(),
-                    50, 14.0f,
+                    30, 14.0f,
                     shellImage.copy() );
             shellContainer.add( shell );
             server.sendShell( Code.SEND_SHELL, shell.toString() );
-        }*/
+        }
 
         edit( keyPressedList, input );
     }
-
     private void calculate() {
         for ( int i = 0; i < stringList.size(); i++ ) {
             String[] splitLine = stringList.get( i ).split( ";" );
@@ -205,8 +225,22 @@ public class Game extends BasicGameState {
                 playerMap.get( Integer.parseInt( splitLine[1] ) ).changeCoordinates( Float.parseFloat( splitLine[2] ),
                         Float.parseFloat( splitLine[3] ),Float.parseFloat( splitLine[4] ));
             }
-            if ( splitLine[0].equals( Code.EXIT_USER) ) {
+            if ( splitLine[0].equals( Code.EXIT_USER ) && playerMap.get( Integer.parseInt( splitLine[1] ) ) != null  ) {
                 playerMap.remove( Integer.parseInt( splitLine[1] ) );
+            }
+            if ( splitLine[0].equals( Code.DELETE_SHELL ) && playerMap.get( Integer.parseInt( splitLine[2] ) ) != null  ) {
+                playerMap.get( Integer.parseInt( splitLine[2] ) ).removeShell( Integer.parseInt( splitLine[1] ) );
+                System.out.println( stringList.get( i ) );
+            }
+            if ( splitLine[0].equals( Code.SEND_SHELL ) && playerMap.get( Integer.parseInt( splitLine[8] ) ) != null ) {
+                playerMap.get( Integer.parseInt( splitLine[8] ) ).addShell( new Shell( Integer.parseInt( splitLine[1] ),
+                                Float.parseFloat( splitLine[2] ),
+                                Float.parseFloat( splitLine[3] ),
+                                Float.parseFloat( splitLine[4] ),
+                                Float.parseFloat( splitLine[5] ),
+                                Integer.parseInt( splitLine[6] ),
+                                enemyShellImage.copy(),
+                                Float.parseFloat( splitLine[7] ) ) );
             }
         }
     }

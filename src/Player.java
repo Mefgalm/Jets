@@ -11,6 +11,7 @@ public class Player {
     private float angle;
     private String nickname;
     private int hp;
+    private ShellContainer shellContainer = new ShellContainer( Game.map );
 
     public Player ( float x, float y, float angle, String nickname, int hp ) {
         this.x = x;
@@ -44,6 +45,22 @@ public class Player {
 
     public int getHp() {
         return hp;
+    }
+
+    public void updateShells() {
+        shellContainer.updateShells();
+    }
+
+    public void addShell( Shell shell ) {
+        shellContainer.add( shell );
+    }
+
+    public Object[] collide( BasicObject bo ) {
+        return shellContainer.isCollide( bo );
+    }
+
+    public void removeShell( int index ) {
+        shellContainer.removeShell( index );
     }
 
     @Override
