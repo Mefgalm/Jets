@@ -62,7 +62,6 @@ public class Shell extends BasicObject {
         timer = 0;
     }
 
-
     public boolean move() {
         x += calCos;
         y -= calSin;

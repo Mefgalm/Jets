@@ -73,7 +73,7 @@ public class Game extends BasicGameState {
         shipImage = new Image( "ship.png" );
         hpBarImage = new Image( "hpBar.png" );
         map = new Map( "map.jpg", gameContainer.getHeight(), gameContainer.getWidth() );
-        ship = new Ship( 5.0f, 3.0f, 500, 500, sb.toString(), shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
+        ship = new Ship( 0.05f, 6, 3f, 500, 500, sb.toString(), shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
         shellImage = new Image( "shell.png" );
         enemyShellImage = new Image ( "enemyShell.png" );
         enemyShellContainer = new ShellContainer( map );
@@ -126,6 +126,7 @@ public class Game extends BasicGameState {
     @Override
     public void render ( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics ) throws SlickException {
         ship.draw( graphics );
+        collideShip();
         try {
             Thread.sleep( 5 );
         } catch ( InterruptedException ex ) {
@@ -133,8 +134,6 @@ public class Game extends BasicGameState {
         }
         calculate();
         drawShips();
-
-        collideShip();
 
         stringList.clear();
         updatePlayersShell();
@@ -164,7 +163,9 @@ public class Game extends BasicGameState {
 
         if ( keyPressList.isEmpty() ) {
             currentKey.removeAll( currentKey );
+            ship.setSpeed( 0 );   //сбросить скорость
         } else {
+            ship.changeSpeed();   //прибавление к скорости ускорения
             if ( keyPressList.size() > keyPressedList.size() ) {
                 for ( Integer keyPress : keyPressList ) {
                     if ( !keyPressedList.contains( keyPress ) ) {
@@ -197,12 +198,12 @@ public class Game extends BasicGameState {
         if ( timeBetweenShoot > 0 ) {
             timeBetweenShoot--;
         }
-        if ( timeBetweenShoot == 0 ) {
+        if ( timeBetweenShoot == 0 && input.isMouseButtonDown( 0 ) ) {
             timeBetweenShoot = 6;
             Shell shell = new Shell( ship.getCurrentAngle(),   //Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, float speed, Image image )
                     20, 10,
                     ship.getX(), ship.getY(),
-                    30, 14.0f,
+                    40, 14.0f,
                     shellImage.copy() );
             shellContainer.add( shell );
             server.sendShell( Code.SEND_SHELL, shell.toString() );

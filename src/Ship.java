@@ -28,10 +28,15 @@ public class Ship extends BasicObject {
 
     private float accuracy;
     private Addon addon;
+    private float maxSpeed;
+    private float acceleration;
+    private float speed;
 
-    public Ship( float speed, float angleSpeed, int x, int y, String name, Image image, int height, int weight, Map map ) throws SlickException {
-        super( speed, 0, 30 , x, y, image );
+    public Ship( float acceleration ,float maxSpeed, float angleSpeed, int x, int y, String name, Image image, int height, int weight, Map map ) throws SlickException {
+        super( 0, 0, 30 , x, y, image );
         addon = new Addon( name, image );
+        this.maxSpeed = maxSpeed;
+        this.acceleration = acceleration;
 
         this.map = map;
         this.angleSpeed =  angleSpeed * ONE_DEGREE;
@@ -46,6 +51,17 @@ public class Ship extends BasicObject {
         accuracy = 0.051f;
     }
 
+    public void changeSpeed( ) {
+        if ( speed + acceleration > maxSpeed ) {
+            speed = maxSpeed;
+        } else {
+            speed += acceleration;
+        }
+    }
+
+    public void setSpeed( float speed ) {
+        this.speed = speed;
+    }
 
     public boolean updateAngle( int mouseX, int mouseY ) {
         finalAngle =  Math.atan( ( ( height - mouseY + map.getShiftY() ) - y ) / ( ( mouseX + map.getShiftX()) - x ) );
