@@ -18,34 +18,21 @@ import java.util.*;
 public class Game extends BasicGameState {
     private int ID;
 
-<<<<<<< HEAD
     private List<Integer> keyPressList = new ArrayList<Integer>(  );
     private List<Integer> keyPressedList = new ArrayList<Integer>(  );
     private List<Integer> currentKey = new ArrayList<Integer>(  );
-=======
-    private List<Integer> keyPressList = new ArrayList<Integer>( 4 );
-    private List<Integer> keyPressedList = new ArrayList<Integer>( 4 );
-    private List<Integer> currentKey = new ArrayList<Integer>( 4 );
->>>>>>> origin/master
 
     private Ship ship;
     private ShellContainer shellContainer;
     private ShellContainer enemyShellContainer;
     private Image shellImage;
     private Image enemyShellImage;
-<<<<<<< HEAD
-=======
-    private Map map;
->>>>>>> origin/master
 
     private Image shipImage;
     private int shipNumber;
     private int HP = 100;
     private Image hpBarImage;
-<<<<<<< HEAD
     public static Map map;
-=======
->>>>>>> origin/master
 
     private Server server;
 
@@ -53,10 +40,7 @@ public class Game extends BasicGameState {
     private List<String> stringList = Collections.synchronizedList( new ArrayList<String>(  ) );
     private List<Coordinates> coordinatesSet = new LinkedList<Coordinates>(  );
     private List<Integer> hpList = new ArrayList<Integer>(  );
-<<<<<<< HEAD
     private java.util.Map<Integer, Player> playerMap = new HashMap<Integer, Player>(  );
-=======
->>>>>>> origin/master
 
     public Game ( int ID, Server server ) {
         this.ID = ID;
@@ -81,29 +65,17 @@ public class Game extends BasicGameState {
             System.out.println( "not found" );
         }
 
-<<<<<<< HEAD
         try {
             server.streamOut.writeUTF( Code.ENTER_NEW_USER + ";500.0;500.0;0;Mef;100" );
         } catch ( IOException e ) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
-=======
-        server.sendNewUser( Code.ENTER_NEW_USER, sb.toString(), 100, 500, 500, 0 );
-        //server.send( Code.REQUIRE_FOR_NUMBER );
-       /* try {
-            shipNumber = Integer.parseInt( server.relieveData() );
-            System.out.println( shipNumber );
-        } catch ( IOException ioeX ) {
-            System.out.println( "Can't reacive ship NUmber " );
-        } */
->>>>>>> origin/master
         shipImage = new Image( "ship.png" );
         hpBarImage = new Image( "hpBar.png" );
         map = new Map( "map.jpg", gameContainer.getHeight(), gameContainer.getWidth() );
         ship = new Ship( 5.0f, 3.0f, 500, 500, sb.toString(), shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
         shellImage = new Image( "shell.png" );
         enemyShellImage = new Image ( "enemyShell.png" );
-<<<<<<< HEAD
         enemyShellContainer = new ShellContainer( map );
         shellContainer = new ShellContainer( map );
         new Thread( new ReceiveData() ).start();
@@ -127,96 +99,11 @@ public class Game extends BasicGameState {
                 dY += entry.getValue().getY() + ship.getHeight() - map.getMapHeight();
             } else {
                 dY += entry.getValue().getY() - ship.getShiftY();
-=======
-        enemyShellContainer = new ShellContainer( map, server );
-        shellContainer = new ShellContainer( map, server );
-        new Thread( new ReceiveData() ).start();
-    }
-
-    private void getShipsPosition() {
-        for ( int i = 0; i < stringList.size(); i++ ) {
-            String[] splitLine = stringList.get( i ).split( ";" );
-            int num = Integer.parseInt( splitLine[0] );
-            if ( num == shipNumber && !splitLine[1].equals( Code.SEND_ALL_DATE ) ) {
-                continue;
-            }
-            if ( splitLine[1].equals( Code.SEND_COORDINATES ) ) {
-                int index = coordinatesSet.indexOf( new Coordinates( Integer.parseInt( splitLine[0] ) ) );
-                if ( index != -1 ) {
-                    coordinatesSet.get( index ).changeData( Float.parseFloat( splitLine[2] ),
-                                                            Float.parseFloat( splitLine[3] ),
-                                                            Float.parseFloat( splitLine[4] ) );
-                }
-
-            }
-            if ( splitLine[1].equals( Code.SEND_SHELL ) ) {
-                //Shell ( int shipNumber, int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed )
-                enemyShellContainer.add( new Shell( Integer.parseInt( splitLine[0] ),
-                                               Integer.parseInt( splitLine[2] ),
-                                               Float.parseFloat( splitLine[3] ),
-                                               Float.parseFloat( splitLine[4] ),
-                                               Float.parseFloat( splitLine[5] ),
-                                               Float.parseFloat( splitLine[6] ),
-                                               Integer.parseInt( splitLine[7] ),
-                                               enemyShellImage.copy(),
-                                               Float.parseFloat( splitLine[8] ) ) );
-            }
-            if ( splitLine[1].equals( Code.DELETE_SHELL) ) {
-                System.out.println( stringList.get( i ) );
-                enemyShellContainer.remove( Integer.parseInt( splitLine[2] ), Integer.parseInt( splitLine[3] ) );
-                shellContainer.remove( Integer.parseInt( splitLine[2] ), Integer.parseInt( splitLine[3] ) );
-            }
-            if ( splitLine[1].equals( Code.SEND_ALL_DATE ) ) {
-                shipNumber = Integer.parseInt( splitLine[0] );
-                String[] splitLineSlash = stringList.get( i ).split( "/" );
-                if ( splitLine.length < 4 ) return;
-                for ( int j = 0; j < splitLineSlash.length; j++ ) {
-                    if ( j == 0 ) {
-                        //Coordinates( String name, int HP, float x, float y, float angle, int shipNum )
-                        coordinatesSet.add( new Coordinates( splitLineSlash[2],
-                                            Integer.parseInt( splitLineSlash[3] ),
-                                            Float.parseFloat( splitLineSlash[4] ),
-                                            Float.parseFloat( splitLineSlash[5] ),
-                                            Float.parseFloat( splitLineSlash[6] ),
-                                            Integer.parseInt( splitLineSlash[7] )) );
-                    } else {
-                        coordinatesSet.add( new Coordinates( splitLineSlash[0],
-                                            Integer.parseInt( splitLineSlash[1] ),
-                                            Float.parseFloat( splitLineSlash[2] ),
-                                            Float.parseFloat( splitLineSlash[3] ),
-                                            Float.parseFloat( splitLineSlash[4] ),
-                                            Integer.parseInt( splitLineSlash[5] )) );
-                    }
-                }
-            }
-        }
-    }
-
-    private void drawShips() {
-        Image tempImg = shipImage.copy();
-        for ( Coordinates coordinates : coordinatesSet ) {
-            tempImg.setRotation( (float) Math.toDegrees( -coordinates.angle ) );
-            float dX, dY;
-            if ( ship.getX() < ship.getHalfWidth() ) {
-                dX = coordinates.x - tempImg.getCenterOfRotationX();
-            } else if ( ship.getX() >= map.getMapWidth() - ship.getHalfWidth() ) {
-                dX = coordinates.x - map.getMapWidth() + ship.getWidth() - tempImg.getCenterOfRotationX();
-            } else {
-                dX = coordinates.x - ship.getShiftX() - tempImg.getCenterOfRotationX();
-            }
-            if ( ship.getY() < ship.getHalfHeight() ) {
-                dY = coordinates.y - tempImg.getCenterOfRotationY();
-            } else if ( ship.getY() >= map.getMapHeight() - ship.getHalfHeight() ) {
-                dY = coordinates.y + ship.getHeight() - map.getMapHeight() - tempImg.getCenterOfRotationY();
-            } else {
-                dY = coordinates.y - ship.getShiftY() - tempImg.getCenterOfRotationY();
->>>>>>> origin/master
             }
             tempImg.draw( dX, dY );
         }
     }
 
-<<<<<<< HEAD
     private void updatePlayersShell() {
         for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
             entry.getValue().updateShells();
@@ -236,8 +123,6 @@ public class Game extends BasicGameState {
         }
     }
 
-=======
->>>>>>> origin/master
     @Override
     public void render ( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics ) throws SlickException {
         ship.draw( graphics );
@@ -246,7 +131,6 @@ public class Game extends BasicGameState {
         } catch ( InterruptedException ex ) {
             System.out.print( "!!!" );
         }
-<<<<<<< HEAD
         calculate();
         drawShips();
 
@@ -255,16 +139,6 @@ public class Game extends BasicGameState {
         stringList.clear();
         updatePlayersShell();
         shellContainer.updateShells();
-=======
-        getShipsPosition();
-        drawShips();
-        stringList.clear();
-        shellContainer.updateShells(  );
-        enemyShellContainer.updateShells(  );
-        if ( enemyShellContainer.isCollide( ship ) ) {
-            HP -= 1;
-        }
->>>>>>> origin/master
     }
 
     public void edit( List<Integer> list, Input input ) {
@@ -316,38 +190,24 @@ public class Game extends BasicGameState {
             if ( currentKey.get( currentKey.size() - 1 ) == Input.KEY_D ) {
                 ship.moveRight();
             }
-<<<<<<< HEAD
         }
         ship.updateAngle( Mouse.getX(), Mouse.getY() );
         server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
-=======
-            server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
-        }
->>>>>>> origin/master
 
         if ( timeBetweenShoot > 0 ) {
             timeBetweenShoot--;
         }
-        if ( input.isMouseButtonDown( Input.MOUSE_LEFT_BUTTON ) && timeBetweenShoot == 0 ) {
-<<<<<<< HEAD
+        if ( timeBetweenShoot == 0 ) {
             timeBetweenShoot = 6;
             Shell shell = new Shell( ship.getCurrentAngle(),   //Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, float speed, Image image )
                     20, 10,
                     ship.getX(), ship.getY(),
                     30, 14.0f,
-=======
-            timeBetweenShoot = 4;
-            Shell shell = new Shell( shipNumber, ship.getCurrentAngle() + ship.getAccuracy(),
-                    5,
-                    ship.getX(), ship.getY(),
-                    50, 14.0f,
->>>>>>> origin/master
                     shellImage.copy() );
             shellContainer.add( shell );
             server.sendShell( Code.SEND_SHELL, shell.toString() );
         }
 
-<<<<<<< HEAD
         edit( keyPressedList, input );
     }
     private void calculate() {
@@ -368,9 +228,12 @@ public class Game extends BasicGameState {
             if ( splitLine[0].equals( Code.EXIT_USER ) && playerMap.get( Integer.parseInt( splitLine[1] ) ) != null  ) {
                 playerMap.remove( Integer.parseInt( splitLine[1] ) );
             }
-            if ( splitLine[0].equals( Code.DELETE_SHELL ) && playerMap.get( Integer.parseInt( splitLine[2] ) ) != null  ) {
-                playerMap.get( Integer.parseInt( splitLine[2] ) ).removeShell( Integer.parseInt( splitLine[1] ) );
-                System.out.println( stringList.get( i ) );
+            if ( splitLine[0].equals( Code.DELETE_SHELL )  ) {
+                if ( playerMap.get( Integer.parseInt( splitLine[2] ) ) != null ) {
+                    playerMap.get( Integer.parseInt( splitLine[2] ) ).removeShell( Integer.parseInt( splitLine[1] ) );
+                } else {
+                    shellContainer.removeShell( Integer.parseInt( splitLine[1] ) );
+                }
             }
             if ( splitLine[0].equals( Code.SEND_SHELL ) && playerMap.get( Integer.parseInt( splitLine[8] ) ) != null ) {
                 playerMap.get( Integer.parseInt( splitLine[8] ) ).addShell( new Shell( Integer.parseInt( splitLine[1] ),
@@ -383,19 +246,11 @@ public class Game extends BasicGameState {
                                 Float.parseFloat( splitLine[7] ) ) );
             }
         }
-=======
-        if ( ship.updateAngle( Mouse.getX(), Mouse.getY() ) && keyPressList.isEmpty() ) {
-            server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
-        }
-
-        edit( keyPressedList, input );
->>>>>>> origin/master
     }
 
     class ReceiveData extends Thread {
         @Override
         public void run() {
-<<<<<<< HEAD
             boolean use = true;
             while ( use ) {
                 try {
@@ -403,14 +258,6 @@ public class Game extends BasicGameState {
                 } catch ( IOException ioEx ) {
                     use = false;
                     ioEx.printStackTrace();
-=======
-            while ( true ) {
-                try {
-                    String line = server.relieveData();
-                    stringList.add( line );
-                } catch ( IOException ioEx ) {
-                    System.err.println( "Dannie ne prinyati" );
->>>>>>> origin/master
                 }
             }
         }

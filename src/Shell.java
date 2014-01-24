@@ -16,22 +16,26 @@ public class Shell extends BasicObject {
     private double calSin;
 
     private int number;
-<<<<<<< HEAD
     private static int count = 0;
+
+    public Shell( int number ) {
+        super();
+        this.number = number;
+    }
+
+    @Override
+    public boolean equals( Object o ) {
+        return number == ( ( Shell ) o ).number;
+    }
+
+    @Override
+    public int hashCode() {
+        return number;
+    }
 
     public Shell ( float currentAngle, float range, float radius, float x, float y, int timeToDestroy, float speed, Image image ) {
         super( speed, currentAngle, radius, (float) ( x + Math.cos( currentAngle ) * range ), (float) ( y - Math.sin( currentAngle ) * range ), image );
         this.timeToDestroy = timeToDestroy;
-
-=======
-    private int shipNumber;
-    private static int count = 0;
-
-    public Shell ( int shipNumber, float currentAngle, float radius, float x, float y, int timeToDestroy, float speed, Image image ) {
-        super( speed, currentAngle, (float) ( x + Math.cos( currentAngle ) * radius ), (float) ( y - Math.sin( currentAngle ) * radius ), image );
-        this.timeToDestroy = timeToDestroy;
-        this.shipNumber = shipNumber;
->>>>>>> origin/master
         if ( count > 100 ) {
             count = 0;
         } else {
@@ -46,14 +50,8 @@ public class Shell extends BasicObject {
         timer = 0;
     }
 
-<<<<<<< HEAD
     public Shell ( int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed ) {
         super( speed, currentAngle, radius, x, y, image );
-=======
-    public Shell ( int shipNumber, int number, float currentAngle, float radius, float x, float y, int timeToDestroy, Image image, float speed ) {
-        super( speed, currentAngle, radius, x, y, image );
-        this.shipNumber = shipNumber;
->>>>>>> origin/master
         this.timeToDestroy = timeToDestroy;
         this.number = number;
 
@@ -63,6 +61,7 @@ public class Shell extends BasicObject {
         image.setRotation( (float) Math.toDegrees( -currentAngle ) );
         timer = 0;
     }
+
 
     public boolean move() {
         x += calCos;
@@ -82,13 +81,6 @@ public class Shell extends BasicObject {
         return number;
     }
 
-<<<<<<< HEAD
-=======
-    public int getShipNumber() {
-        return shipNumber;
-    }
-
->>>>>>> origin/master
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(  );

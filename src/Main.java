@@ -18,11 +18,8 @@ public class Main extends StateBasedGame {
     public static void main(String [] arguments) {
         try {
             app = new AppGameContainer( new Main( "Jets" ) );
-<<<<<<< HEAD
             Main.app.setDisplayMode( 900, 900, false );
-=======
             app.setDisplayMode( 900, 900, false );
->>>>>>> origin/master
             app.setTargetFrameRate( 60 );
             app.setVSync( true );
             app.setShowFPS( true );

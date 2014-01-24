@@ -19,6 +19,7 @@ public abstract class BasicObject {
     private int mapWeight;
     protected Image image;
 
+    public BasicObject() {}
 
     public BasicObject ( float speed, float currentAngle, float x, float y, Image image )  {
         this.speed = speed;

@@ -59,8 +59,8 @@ public class Player {
         return shellContainer.isCollide( bo );
     }
 
-    public void removeShell( int index ) {
-        shellContainer.removeShell( index );
+    public void removeShell( int value ) {
+        shellContainer.removeShell( value );
     }
 
     @Override
