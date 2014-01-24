@@ -162,7 +162,7 @@ public class Game extends BasicGameState {
         edit( keyPressList, input );
 
         if ( keyPressList.isEmpty() ) {
-            currentKey.removeAll( currentKey );
+            currentKey.clear();
             ship.setSpeed( 0 );   //сбросить скорость
         } else {
             ship.changeSpeed();   //прибавление к скорости ускорения

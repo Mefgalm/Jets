@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f7838602-6715-418a-9d42-ea8b429f295f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.java" afterPath="$PROJECT_DIR$/src/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Shell.java" afterPath="$PROJECT_DIR$/src/Shell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Ship.java" afterPath="$PROJECT_DIR$/src/Ship.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Jets.iws" />
@@ -12,10 +10,10 @@
     <file path="/Main.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383996889066" ignored="false" />
     <file path="/fragment.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383925098133" ignored="false" />
     <file path="/a.dummy" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1383665868252" ignored="false" />
-    <file path="/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1390578378400" ignored="false" />
+    <file path="/Game.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1390578807400" ignored="false" />
     <file path="/Menu.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382259273597" ignored="false" />
     <file path="/TestMenu.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1381574717008" ignored="false" />
-    <file path="/Dummy.txt" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1390576029697" ignored="false" />
+    <file path="/Dummy.txt" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1390578521711" ignored="false" />
     <file path="/Ship.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1390578266301" ignored="false" />
     <file path="/Map.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1382114538612" ignored="false" />
     <file path="/BasicObject.java" changelist="f7838602-6715-418a-9d42-ea8b429f295f" time="1390575173471" ignored="false" />
@@ -137,7 +135,7 @@
       <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="205" column="21" selection-start="7923" selection-end="7923" vertical-scroll-proportion="0.8330804">
+            <state line="162" column="56" selection-start="5988" selection-end="5988" vertical-scroll-proportion="0.49924126">
               <folding>
                 <element signature="e#508#517#0" expanded="true" />
                 <element signature="e#579#588#0" expanded="true" />
@@ -549,7 +547,11 @@
       <created>1390576049096</created>
       <updated>1390576049096</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="acceleration">
+      <created>1390578523236</created>
+      <updated>1390578523236</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -589,7 +591,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16542156" sideWeight="0.77728283" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16542156" sideWeight="0.77728283" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22271715" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -640,7 +642,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="server 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="acceleration" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -668,6 +670,7 @@
     <MESSAGE value="server :)" />
     <MESSAGE value="server :|" />
     <MESSAGE value="server 2" />
+    <MESSAGE value="acceleration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -789,7 +792,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="205" column="21" selection-start="7923" selection-end="7923" vertical-scroll-proportion="0.8330804">
+        <state line="162" column="56" selection-start="5988" selection-end="5988" vertical-scroll-proportion="0.49924126">
           <folding>
             <element signature="e#508#517#0" expanded="true" />
             <element signature="e#579#588#0" expanded="true" />
