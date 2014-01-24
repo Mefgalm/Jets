@@ -113,11 +113,11 @@ public class Game extends BasicGameState {
     private void collideShip() {
         for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
             Object[] objects = entry.getValue().collide( ship );
-            for ( int i = 0; i < objects.length; i++ ) {
+            for ( Object obj : objects ) {
                 try {
-                    server.streamOut.writeUTF( Code.DELETE_SHELL + ";" + objects[i] + ";" + entry.getKey() );
+                    server.streamOut.writeUTF( Code.DELETE_SHELL + ";" + obj + ";" + entry.getKey() + ";" + System.currentTimeMillis() );
                 } catch ( IOException e ) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    e.printStackTrace();
                 }
             }
         }
@@ -132,9 +132,9 @@ public class Game extends BasicGameState {
         } catch ( InterruptedException ex ) {
             System.out.print( "!!!" );
         }
-        calculate();
         drawShips();
 
+        calculate();
         stringList.clear();
         updatePlayersShell();
         shellContainer.updateShells();
@@ -234,6 +234,7 @@ public class Game extends BasicGameState {
                     playerMap.get( Integer.parseInt( splitLine[2] ) ).removeShell( Integer.parseInt( splitLine[1] ) );
                 } else {
                     shellContainer.removeShell( Integer.parseInt( splitLine[1] ) );
+                    System.out.println( System.currentTimeMillis() - Long.parseLong( splitLine[3] ) );
                 }
             }
             if ( splitLine[0].equals( Code.SEND_SHELL ) && playerMap.get( Integer.parseInt( splitLine[8] ) ) != null ) {
