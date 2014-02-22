@@ -17,9 +17,9 @@ public class Server {
     public DataInputStream streamIn;
     public DataOutputStream streamOut;
 
-    public Server() {
+    public Server( ) {
         try {
-            socket = new Socket( "46.200.93.197", Code.PORT );
+            socket = new Socket( "127.0.0.1", Code.PORT );
             socket.setTcpNoDelay( true );
             streamIn = new DataInputStream( new BufferedInputStream( socket.getInputStream() ) );
             streamOut = new DataOutputStream( socket.getOutputStream() );
@@ -38,7 +38,7 @@ public class Server {
             sb.append( code ).append( ";" ).
                append( x ).append( ";" ).
                append( y ).append( ";" ).
-               append( currentAngle );
+               append( currentAngle ).append( ";" ).append( System.currentTimeMillis() );
             streamOut.writeUTF( sb.toString() );
         } catch ( IOException ioEx ) {
             System.err.println( "Can't send new coordinates of ship" );

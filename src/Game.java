@@ -18,9 +18,9 @@ import java.util.*;
 public class Game extends BasicGameState {
     private int ID;
 
-    private List<Integer> keyPressList = new ArrayList<Integer>(  );
-    private List<Integer> keyPressedList = new ArrayList<Integer>(  );
-    private List<Integer> currentKey = new ArrayList<Integer>(  );
+    private List<Integer> keyPressList = new ArrayList<Integer>( 4 );
+    private List<Integer> keyPressedList = new ArrayList<Integer>( 4 );
+    private List<Integer> currentKey = new ArrayList<Integer>( 4 );
 
     private Ship ship;
     private ShellContainer shellContainer;
@@ -68,7 +68,7 @@ public class Game extends BasicGameState {
         try {
             server.streamOut.writeUTF( Code.ENTER_NEW_USER + ";500.0;500.0;0;Mef;100" );
         } catch ( IOException e ) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
         shipImage = new Image( "ship.png" );
         hpBarImage = new Image( "hpBar.png" );
@@ -115,7 +115,9 @@ public class Game extends BasicGameState {
             Object[] objects = entry.getValue().collide( ship );
             for ( Object obj : objects ) {
                 try {
-                    server.streamOut.writeUTF( Code.DELETE_SHELL + ";" + obj + ";" + entry.getKey() + ";" + System.currentTimeMillis() );
+                    StringBuilder sb = new StringBuilder(  );
+                    sb.append( Code.DELETE_SHELL ).append( ";" ).append( obj ).append( ";" ).append( entry.getKey() ).append( ";" ).append( System.currentTimeMillis() );
+                    server.streamOut.writeUTF( sb.toString() );
                 } catch ( IOException e ) {
                     e.printStackTrace();
                 }
@@ -126,7 +128,6 @@ public class Game extends BasicGameState {
     @Override
     public void render ( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics ) throws SlickException {
         ship.draw( graphics );
-        collideShip();
         try {
             Thread.sleep( 5 );
         } catch ( InterruptedException ex ) {
@@ -163,7 +164,7 @@ public class Game extends BasicGameState {
 
         if ( keyPressList.isEmpty() ) {
             currentKey.clear();
-            ship.setSpeed( 0 );   //сбросить скорость
+            ship.setSpeed( 2 );   //сбросить скорость
         } else {
             ship.changeSpeed();   //прибавление к скорости ускорения
             if ( keyPressList.size() > keyPressedList.size() ) {
@@ -210,6 +211,7 @@ public class Game extends BasicGameState {
         }
 
         edit( keyPressedList, input );
+        collideShip();
     }
     private void calculate() {
         for ( int i = 0; i < stringList.size(); i++ ) {
