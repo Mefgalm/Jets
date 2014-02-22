@@ -38,7 +38,7 @@ public class Server {
             sb.append( code ).append( ";" ).
                append( x ).append( ";" ).
                append( y ).append( ";" ).
-               append( currentAngle ).append( ";" ).append( System.currentTimeMillis() );
+               append( currentAngle );
             streamOut.writeUTF( sb.toString() );
         } catch ( IOException ioEx ) {
             System.err.println( "Can't send new coordinates of ship" );

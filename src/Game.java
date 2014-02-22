@@ -111,13 +111,14 @@ public class Game extends BasicGameState {
     }
 
     private void collideShip() {
+        StringBuilder sb;
         for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
             Object[] objects = entry.getValue().collide( ship );
             for ( Object obj : objects ) {
                 try {
-                    StringBuilder sb = new StringBuilder(  );
+                    sb = new StringBuilder(  );
                     sb.append( Code.DELETE_SHELL ).append( ";" ).append( obj ).append( ";" ).append( entry.getKey() ).append( ";" ).append( System.currentTimeMillis() );
-                    server.streamOut.writeUTF( sb.toString() );
+                    server.streamOut.writeChars( sb.toString() );
                 } catch ( IOException e ) {
                     e.printStackTrace();
                 }
@@ -156,12 +157,13 @@ public class Game extends BasicGameState {
             list.add( Input.KEY_D );
         }
     }
-
+    long asd;
     @Override
     public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
         Input input = gameContainer.getInput();
         edit( keyPressList, input );
 
+        asd = System.currentTimeMillis();
         if ( keyPressList.isEmpty() ) {
             currentKey.clear();
             ship.setSpeed( 2 );   //сбросить скорость
@@ -209,9 +211,8 @@ public class Game extends BasicGameState {
             shellContainer.add( shell );
             server.sendShell( Code.SEND_SHELL, shell.toString() );
         }
-
-        edit( keyPressedList, input );
         collideShip();
+        edit( keyPressedList, input );
     }
     private void calculate() {
         for ( int i = 0; i < stringList.size(); i++ ) {
@@ -236,7 +237,6 @@ public class Game extends BasicGameState {
                     playerMap.get( Integer.parseInt( splitLine[2] ) ).removeShell( Integer.parseInt( splitLine[1] ) );
                 } else {
                     shellContainer.removeShell( Integer.parseInt( splitLine[1] ) );
-                    System.out.println( System.currentTimeMillis() - Long.parseLong( splitLine[3] ) );
                 }
             }
             if ( splitLine[0].equals( Code.SEND_SHELL ) && playerMap.get( Integer.parseInt( splitLine[8] ) ) != null ) {

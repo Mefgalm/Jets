@@ -41,7 +41,7 @@ public class ShellContainer {
                             ( shellList.get( i ).getY() - bo.getY() ) * ( shellList.get( i ).getY() - bo.getY() ) )
                             <= bo.getRadius() + shellList.get( i ).getRadius() ) {
                 list.add( shellList.get( i ).getNumber() );
-                shellList.remove( i );
+                //shellList.remove( i );
             }
         }
         return list.toArray();
