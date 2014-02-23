@@ -111,19 +111,16 @@ public class Game extends BasicGameState {
     }
 
     private void collideShip() {
-        StringBuilder sb;
         for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
-            Object[] objects = entry.getValue().collide( ship );
-            for ( Object obj : objects ) {
-                try {
-                    sb = new StringBuilder(  );
-                    sb.append( Code.DELETE_SHELL ).append( ";" ).append( obj ).append( ";" ).append( entry.getKey() ).append( ";" ).append( System.currentTimeMillis() );
-                    server.streamOut.writeChars( sb.toString() );
-                } catch ( IOException e ) {
-                    e.printStackTrace();
+            for (java.util.Map.Entry<Integer,Player> entry2 : playerMap.entrySet()) {
+                if ( entry.getKey() != entry2.getKey() ) {
+                    entry.getValue().collide( entry2.getValue().getX(), entry2.getValue().getY() );
                 }
             }
+            shellContainer.isCollide( entry.getValue().getX(), entry.getValue().getX() );
+            HP -= entry.getValue().collide( ship.getX(), ship.getY() );
         }
+
     }
 
     @Override
@@ -140,6 +137,10 @@ public class Game extends BasicGameState {
         stringList.clear();
         updatePlayersShell();
         shellContainer.updateShells();
+        if ( HP <= 0 ) {
+            Main.app.exit();
+        }
+        graphics.drawString( String.valueOf( HP ), 0, 0 );
     }
 
     public void edit( List<Integer> list, Input input ) {
@@ -232,13 +233,13 @@ public class Game extends BasicGameState {
             if ( splitLine[0].equals( Code.EXIT_USER ) && playerMap.get( Integer.parseInt( splitLine[1] ) ) != null  ) {
                 playerMap.remove( Integer.parseInt( splitLine[1] ) );
             }
-            if ( splitLine[0].equals( Code.DELETE_SHELL )  ) {
+            /*if ( splitLine[0].equals( Code.DELETE_SHELL )  ) {
                 if ( playerMap.get( Integer.parseInt( splitLine[2] ) ) != null ) {
                     playerMap.get( Integer.parseInt( splitLine[2] ) ).removeShell( Integer.parseInt( splitLine[1] ) );
                 } else {
                     shellContainer.removeShell( Integer.parseInt( splitLine[1] ) );
                 }
-            }
+            }*/
             if ( splitLine[0].equals( Code.SEND_SHELL ) && playerMap.get( Integer.parseInt( splitLine[8] ) ) != null ) {
                 playerMap.get( Integer.parseInt( splitLine[8] ) ).addShell( new Shell( Integer.parseInt( splitLine[1] ),
                                 Float.parseFloat( splitLine[2] ),

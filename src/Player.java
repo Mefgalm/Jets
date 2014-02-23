@@ -55,8 +55,8 @@ public class Player {
         shellContainer.add( shell );
     }
 
-    public Object[] collide( BasicObject bo ) {
-        return shellContainer.isCollide( bo );
+    public int collide( float x, float y ) {
+        return shellContainer.isCollide( x, y );
     }
 
     public void removeShell( int value ) {

@@ -34,17 +34,17 @@ public class ShellContainer {
         animationContainer.update();
     }
 
-    public Object[] isCollide ( BasicObject bo ) {
-        List<Integer>  list = new ArrayList<Integer>(  );
+    public int isCollide ( float x, float y ) {
+        int count = 0;
         for ( int i = 0; i < shellList.size(); i++ ) {
-            if ( Math.sqrt( ( shellList.get( i ).getX() - bo.getX() ) * ( shellList.get( i ).getX() - bo.getX() ) +
-                            ( shellList.get( i ).getY() - bo.getY() ) * ( shellList.get( i ).getY() - bo.getY() ) )
-                            <= bo.getRadius() + shellList.get( i ).getRadius() ) {
-                list.add( shellList.get( i ).getNumber() );
-                //shellList.remove( i );
+            if ( Math.sqrt( ( shellList.get( i ).getX() - x ) * ( shellList.get( i ).getX() - x ) +
+                            ( shellList.get( i ).getY() - y ) * ( shellList.get( i ).getY() - y ) )
+                            <= 40 + shellList.get( i ).getRadius() ) {
+                shellList.remove( i );
+                count += 1;
             }
         }
-        return list.toArray();
+        return count;
     }
 
     public void removeShell( int value ) {
