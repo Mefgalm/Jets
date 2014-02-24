@@ -113,6 +113,11 @@ public class Ship extends BasicObject {
         }
     }
 
+    public void setRespawnCoordinates( float x, float y ) {
+        this.x = x;
+        this.y = y;
+    }
+
     public float getAccuracy () {
         return (float) Math.random() * accuracy * 2 - accuracy;
     }
@@ -201,5 +206,13 @@ public class Ship extends BasicObject {
 
     public float getRlY() {
         return rlY;
+    }
+
+    public void setX( float x ) {
+        this.x = x;
+    }
+
+    public void setY( float y )  {
+        this.y = y;
     }
 }

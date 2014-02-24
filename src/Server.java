@@ -17,19 +17,11 @@ public class Server {
     public DataInputStream streamIn;
     public DataOutputStream streamOut;
 
-    public Server( ) {
-        try {
+    public Server( ) throws IOException {
             socket = new Socket( "127.0.0.1", Code.PORT );
             socket.setTcpNoDelay( true );
             streamIn = new DataInputStream( new BufferedInputStream( socket.getInputStream() ) );
             streamOut = new DataOutputStream( socket.getOutputStream() );
-        } catch ( UnknownHostException uhe ) {
-            System.err.println("Host unknown: " + uhe.getMessage());
-        } catch (IOException ioe ) {
-            System.err.println("Unexpected exception: " + ioe.getMessage());
-        } /*catch ( InterruptedException itEx ) {
-            System.err.println( " stream wait exception " );
-        }*/
     }
 
     public void sendData( String code, float x, float y, float currentAngle ) {

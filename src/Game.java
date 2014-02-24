@@ -113,7 +113,7 @@ public class Game extends BasicGameState {
     private void collideShip() {
         for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
             for (java.util.Map.Entry<Integer,Player> entry2 : playerMap.entrySet()) {
-                if ( entry.getKey() != entry2.getKey() ) {
+                if ( !entry.getKey().equals( entry2.getKey() ) ) {
                     entry.getValue().collide( entry2.getValue().getX(), entry2.getValue().getY() );
                 }
             }
@@ -137,9 +137,6 @@ public class Game extends BasicGameState {
         stringList.clear();
         updatePlayersShell();
         shellContainer.updateShells();
-        if ( HP <= 0 ) {
-            Main.app.exit();
-        }
         graphics.drawString( String.valueOf( HP ), 0, 0 );
     }
 
@@ -196,6 +193,14 @@ public class Game extends BasicGameState {
                 ship.moveRight();
             }
         }
+        if ( input.isKeyDown( Input.KEY_K ) ) {
+            ship.setX( -500 );
+            ship.setY( -500 );
+            DeathScreen.setShip( ship );
+            server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
+            Main.app.setDisplayMode( 200, 150, false );
+            stateBasedGame.enterState( Main.deathScreen );
+        }
         ship.updateAngle( Mouse.getX(), Mouse.getY() );
         server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
 
@@ -233,13 +238,6 @@ public class Game extends BasicGameState {
             if ( splitLine[0].equals( Code.EXIT_USER ) && playerMap.get( Integer.parseInt( splitLine[1] ) ) != null  ) {
                 playerMap.remove( Integer.parseInt( splitLine[1] ) );
             }
-            /*if ( splitLine[0].equals( Code.DELETE_SHELL )  ) {
-                if ( playerMap.get( Integer.parseInt( splitLine[2] ) ) != null ) {
-                    playerMap.get( Integer.parseInt( splitLine[2] ) ).removeShell( Integer.parseInt( splitLine[1] ) );
-                } else {
-                    shellContainer.removeShell( Integer.parseInt( splitLine[1] ) );
-                }
-            }*/
             if ( splitLine[0].equals( Code.SEND_SHELL ) && playerMap.get( Integer.parseInt( splitLine[8] ) ) != null ) {
                 playerMap.get( Integer.parseInt( splitLine[8] ) ).addShell( new Shell( Integer.parseInt( splitLine[1] ),
                                 Float.parseFloat( splitLine[2] ),

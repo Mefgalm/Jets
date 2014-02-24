@@ -26,6 +26,7 @@ public class Login extends BasicGameState {
     private int ID;
     private Server server;
     private TextField nameTextField;
+    private TextField passwordTextField;
     private Image backgroundImage;
     private Image launchImage;
 
@@ -35,35 +36,32 @@ public class Login extends BasicGameState {
     }
     @Override
     public int getID () {
-        return ID;  //To change body of implemented methods use File | Settings | File Templates.
+        return ID;
     }
 
     @Override
     public void init ( GameContainer gameContainer, StateBasedGame stateBasedGame ) throws SlickException {
-
-
         Main.app.setDisplayMode( 200, 150, false );
         backgroundImage = new Image( "enterForm.jpg" );
         launchImage = new Image( "button.jpg" );
-        backgroundImage = new Image( "enterForm.jpg" );
-        launchImage = new Image( "button.jpg" );
-        Main.app.setDisplayMode( 200, 150, false );
         nameTextField = new TextField(gameContainer, new TrueTypeFont(new Font(Font.SERIF,Font.BOLD, 14),false), 10, 50, 180, 25);
+        passwordTextField = new TextField(gameContainer, new TrueTypeFont(new Font(Font.SERIF,Font.BOLD, 14),false), 10, 80, 180, 25);
     }
 
     @Override
     public void render ( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics ) throws SlickException {
         backgroundImage.draw( );
-        launchImage.draw( 50, 95 );
+        launchImage.draw( 50, 120 );
         nameTextField.render( gameContainer, graphics );
+        passwordTextField.render( gameContainer, graphics );
     }
 
     @Override
     public void update ( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
         Input input = gameContainer.getInput();
-        if ( input.getMouseX() > 50 && input.getMouseX() < 150 && input.getMouseY() > 95 && input.getMouseY() < 115 && input.isMouseButtonDown( 0 ) ) {
+        if ( input.getMouseX() > 50 && input.getMouseX() < 150 && input.getMouseY() > 120 && input.getMouseY() < 140 && input.isMouseButtonDown( 0 ) ) {
 
-            Main.app.setDisplayMode( 900, 900, false );
+            Main.app.setDisplayMode( Main.width, Main.height, false );
             stateBasedGame.enterState( Main.game );
         }
     }
