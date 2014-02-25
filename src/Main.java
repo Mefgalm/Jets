@@ -1,5 +1,6 @@
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -14,6 +15,7 @@ public class Main extends StateBasedGame {
     public final static int height = 700;
     public static AppGameContainer app;
 
+
     public Main ( String name ) {
         super( name );
         Server server = null;
@@ -23,18 +25,18 @@ public class Main extends StateBasedGame {
             System.out.println( "Server is down" );
             System.exit( 0 );
         }
+        addState( new DeathScreen( deathScreen ) );
         addState( new Login( login, server ) );
         addState( new Game( game, server ) );
-        addState( new DeathScreen( deathScreen ) );
     }
 
     public static void main(String [] arguments) {
         try {
             app = new AppGameContainer( new Main( "Jets" ) );
             app.setDisplayMode( Main.width, Main.height, false );
-            app.setTargetFrameRate( 60 );
-            app.setVSync( true );
-            app.setShowFPS( true );
+            app.setTargetFrameRate(60);
+            app.setVSync(true);
+            app.setShowFPS(false);
             app.start();
         } catch (SlickException e) {
             e.printStackTrace();
