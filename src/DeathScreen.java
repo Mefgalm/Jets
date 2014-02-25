@@ -44,6 +44,7 @@ public class DeathScreen extends BasicGameState {
 
             Main.app.setDisplayMode( Main.width, Main.height, false );
             ship.setRespawnCoordinates( 500, 500 );
+            gameContainer.setMouseGrabbed( true );
             stateBasedGame.enterState( Main.game );
         }
     }

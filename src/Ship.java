@@ -23,7 +23,7 @@ public class Ship extends BasicObject {
     private int width;
     private int halfHeight;
     private int halfWidth;
-    private Map map;
+    private WorldMap map;
     private float rlX, rlY;
 
     private float accuracy;
@@ -32,7 +32,7 @@ public class Ship extends BasicObject {
     private float acceleration;
     private float speed;
 
-    public Ship( float acceleration ,float maxSpeed, float angleSpeed, int x, int y, String name, Image image, int height, int weight, Map map ) throws SlickException {
+    public Ship( float acceleration ,float maxSpeed, float angleSpeed, int x, int y, String name, Image image, int height, int weight, WorldMap map ) throws SlickException {
         super( 0, 0, 50 , x, y, image );
         addon = new Addon( name, image );
         this.maxSpeed = maxSpeed;

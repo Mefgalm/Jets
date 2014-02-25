@@ -30,7 +30,10 @@ public class Login extends BasicGameState {
     private Image backgroundImage;
     private Image launchImage;
 
+    public static String nickname;
+
     public Login ( int ID, Server server ) {
+        System.out.println( "Login constructor" );
         this.server = server;
         this.ID = ID;
     }
@@ -41,6 +44,7 @@ public class Login extends BasicGameState {
 
     @Override
     public void init ( GameContainer gameContainer, StateBasedGame stateBasedGame ) throws SlickException {
+        System.out.println( "Init Login" );
         Main.app.setDisplayMode( 200, 150, false );
         backgroundImage = new Image( "enterForm.jpg" );
         launchImage = new Image( "button.jpg" );
@@ -62,6 +66,9 @@ public class Login extends BasicGameState {
         if ( input.getMouseX() > 50 && input.getMouseX() < 150 && input.getMouseY() > 120 && input.getMouseY() < 140 && input.isMouseButtonDown( 0 ) ) {
 
             Main.app.setDisplayMode( Main.width, Main.height, false );
+            nickname = nameTextField.getText();
+
+            gameContainer.setMouseGrabbed( true );
             stateBasedGame.enterState( Main.game );
         }
     }

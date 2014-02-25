@@ -18,7 +18,7 @@ public class Server {
     public DataOutputStream streamOut;
 
     public Server( ) throws IOException {
-            socket = new Socket( "127.0.0.1", Code.PORT );
+            socket = new Socket( "192.168.0.151", Code.PORT );
             socket.setTcpNoDelay( true );
             streamIn = new DataInputStream( new BufferedInputStream( socket.getInputStream() ) );
             streamOut = new DataOutputStream( socket.getOutputStream() );

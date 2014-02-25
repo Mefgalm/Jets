@@ -13,9 +13,9 @@ import java.util.List;
 public class ShellContainer {
     private List<Shell> shellList = new LinkedList<Shell>(  );
     private AnimationContainer animationContainer = new AnimationContainer();
-    private Map map;
+    private WorldMap map;
 
-    public ShellContainer( Map map ) {
+    public ShellContainer( WorldMap map ) {
         this.map = map;
     }
 

@@ -25,14 +25,14 @@ public class Game extends BasicGameState {
     private Ship ship;
     private ShellContainer shellContainer;
     private ShellContainer enemyShellContainer;
-    private Image shellImage;
-    private Image enemyShellImage;
+    public static Image shellImage;
+    public static Image enemyShellImage;
 
     private Image shipImage;
     private int shipNumber;
     private int HP = 100;
     private Image hpBarImage;
-    public static Map map;
+    public static WorldMap map;
 
     private Server server;
 
@@ -40,7 +40,9 @@ public class Game extends BasicGameState {
     private List<String> stringList = Collections.synchronizedList( new ArrayList<String>(  ) );
     private List<Coordinates> coordinatesSet = new LinkedList<Coordinates>(  );
     private List<Integer> hpList = new ArrayList<Integer>(  );
-    private java.util.Map<Integer, Player> playerMap = new HashMap<Integer, Player>(  );
+    private Map<Integer, Player> playerMap = new HashMap<Integer, Player>(  );
+
+    private Map<Integer, Skill> skillMap = new HashMap<Integer, Skill>();
 
     public Game ( int ID, Server server ) {
         this.ID = ID;
@@ -54,6 +56,7 @@ public class Game extends BasicGameState {
 
     @Override
     public void init ( GameContainer gameContainer, StateBasedGame stateBasedGame ) throws SlickException {
+        System.out.println( "Init game" );
         String line;
         StringBuilder sb = new StringBuilder(  );
         try {
@@ -66,66 +69,61 @@ public class Game extends BasicGameState {
         }
 
         try {
-            server.streamOut.writeUTF( Code.ENTER_NEW_USER + ";500.0;500.0;0;Mef;100" );
+            server.streamOut.writeUTF( Code.ENTER_NEW_USER + ";500.0;500.0;0;" + Login.nickname + ";100" );
         } catch ( IOException e ) {
             e.printStackTrace();
         }
         shipImage = new Image( "ship.png" );
         hpBarImage = new Image( "hpBar.png" );
-        map = new Map( "map.jpg", gameContainer.getHeight(), gameContainer.getWidth() );
-        ship = new Ship( 0.05f, 6, 3f, 500, 500, sb.toString(), shipImage, gameContainer.getHeight(), gameContainer.getWidth(), map );
-        shellImage = new Image( "shell.png" );
-        enemyShellImage = new Image ( "enemyShell.png" );
+        map = new WorldMap( "map.jpg", gameContainer.getHeight(), gameContainer.getWidth() );
+        ship = new Ship( 0.05f, 6, 3f, 500, 500, "das", shipImage.copy(), gameContainer.getHeight(), gameContainer.getWidth(), map );
+        shellImage = new Image( "shellImg/1.png" );
+        enemyShellImage = new Image ( "shellImg/2.png" );
         enemyShellContainer = new ShellContainer( map );
         shellContainer = new ShellContainer( map );
+        skillMap.put( Input.KEY_Q,  new SpeedFIreSkill() );
+
+        //load skills
+
         new Thread( new ReceiveData() ).start();
     }
 
     private void drawShips() {
-        Image tempImg = shipImage.copy();
-        for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
-            tempImg.setRotation( (float) Math.toDegrees( -entry.getValue().getAgnel() ) );
-            float dX = -tempImg.getCenterOfRotationX(), dY = -tempImg.getCenterOfRotationY();
-            if ( ship.getX() < ship.getHalfWidth() ) {
-                dX += entry.getValue().getX();
-            } else if ( ship.getX() >= map.getMapWidth() - ship.getHalfWidth() ) {
-                dX += entry.getValue().getX() - map.getMapWidth() + ship.getWidth();
-            } else {
-                dX += entry.getValue().getX() - ship.getShiftX();
-            }
-            if ( ship.getY() < ship.getHalfHeight() ) {
-                dY += entry.getValue().getY();
-            } else if ( ship.getY() >= map.getMapHeight() - ship.getHalfHeight() ) {
-                dY += entry.getValue().getY() + ship.getHeight() - map.getMapHeight();
-            } else {
-                dY += entry.getValue().getY() - ship.getShiftY();
-            }
-            tempImg.draw( dX, dY );
+        for ( Map.Entry< Integer,Player> entry : playerMap.entrySet() ) {
+            entry.getValue().draw( ship, map );
         }
     }
 
     private void updatePlayersShell() {
-        for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
+        for ( Map.Entry<Integer,Player> entry : playerMap.entrySet() ) {
             entry.getValue().updateShells();
         }
     }
 
     private void collideShip() {
-        for (java.util.Map.Entry<Integer,Player> entry : playerMap.entrySet()) {
-            for (java.util.Map.Entry<Integer,Player> entry2 : playerMap.entrySet()) {
+        for ( Map.Entry<Integer,Player> entry : playerMap.entrySet() ) {
+            for ( Map.Entry<Integer,Player> entry2 : playerMap.entrySet() ) {
                 if ( !entry.getKey().equals( entry2.getKey() ) ) {
                     entry.getValue().collide( entry2.getValue().getX(), entry2.getValue().getY() );
                 }
             }
-            shellContainer.isCollide( entry.getValue().getX(), entry.getValue().getX() );
+            shellContainer.isCollide( entry.getValue().getX(), entry.getValue().getY() );
             HP -= entry.getValue().collide( ship.getX(), ship.getY() );
         }
 
     }
 
+    private void updateSkill( Graphics g ) {
+        for ( Map.Entry<Integer,Skill> entry : skillMap.entrySet() ) {
+            entry.getValue().decrement();
+            g.drawString( String.valueOf( entry.getValue().getCd() ), 650, 600 );
+        }
+    }
+
     @Override
     public void render ( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics ) throws SlickException {
         ship.draw( graphics );
+        updateSkill( graphics );
         try {
             Thread.sleep( 5 );
         } catch ( InterruptedException ex ) {
@@ -137,6 +135,16 @@ public class Game extends BasicGameState {
         stringList.clear();
         updatePlayersShell();
         shellContainer.updateShells();
+        if ( HP <= 0 ) {
+            ship.setX( -500 );
+            ship.setY( -500 );
+            DeathScreen.setShip( ship );
+            server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
+            Main.app.setDisplayMode( 200, 150, false );
+            gameContainer.setMouseGrabbed(false);
+            HP = 100;
+            stateBasedGame.enterState( Main.deathScreen );
+        }
         graphics.drawString( String.valueOf( HP ), 0, 0 );
     }
 
@@ -155,13 +163,11 @@ public class Game extends BasicGameState {
             list.add( Input.KEY_D );
         }
     }
-    long asd;
+
     @Override
     public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
         Input input = gameContainer.getInput();
         edit( keyPressList, input );
-
-        asd = System.currentTimeMillis();
         if ( keyPressList.isEmpty() ) {
             currentKey.clear();
             ship.setSpeed( 2 );   //сбросить скорость
@@ -193,19 +199,31 @@ public class Game extends BasicGameState {
                 ship.moveRight();
             }
         }
+        /*
         if ( input.isKeyDown( Input.KEY_K ) ) {
             ship.setX( -500 );
             ship.setY( -500 );
             DeathScreen.setShip( ship );
             server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
             Main.app.setDisplayMode( 200, 150, false );
+            gameContainer.setMouseGrabbed(false);
             stateBasedGame.enterState( Main.deathScreen );
-        }
+        }*/
         ship.updateAngle( Mouse.getX(), Mouse.getY() );
         server.sendData( Code.SEND_COORDINATES, ship.getX(), ship.getY(), ship.getCurrentAngle() );
 
         if ( timeBetweenShoot > 0 ) {
             timeBetweenShoot--;
+        }
+        if ( timeBetweenShoot == 0 ) {
+            for ( Map.Entry<Integer,Skill> entry : skillMap.entrySet() ) {
+                if ( input.isKeyDown( entry.getKey() ) && entry.getValue().getCd() == 0 ) {
+                    entry.getValue().use( shellContainer, server, ship );
+                    entry.getValue().setCd( 30 );
+                    timeBetweenShoot = 6;
+                    break;
+                }
+            }
         }
         if ( timeBetweenShoot == 0 && input.isMouseButtonDown( 0 ) ) {
             timeBetweenShoot = 6;
@@ -229,6 +247,7 @@ public class Game extends BasicGameState {
                               Float.parseFloat( splitLine[3] ),      //y
                               Float.parseFloat( splitLine[4] ),      //angle
                               splitLine[5],                          //Name
+                              shipImage.copy(),
                               Integer.parseInt( splitLine[6]) ) );   //HP )) )
             }
             if ( splitLine[0].equals( Code.SEND_COORDINATES ) && playerMap.get( Integer.parseInt( splitLine[1] ) ) != null ) {

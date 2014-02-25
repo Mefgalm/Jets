@@ -8,14 +8,14 @@ import org.newdawn.slick.SlickException;
  * Time: 16:02
  * To change this template use File | Settings | File Templates.
  */
-public class Map {
+public class WorldMap {
     private Image image;
     private float shiftX;
     private float shiftY;
     private int halfScreenWidth;
     private int halfScreenHeight;
 
-    public Map ( String mapPath, int screenHeight, int screenWidth ) throws SlickException {
+    public WorldMap ( String mapPath, int screenHeight, int screenWidth ) throws SlickException {
         image = new Image( mapPath );
         halfScreenHeight = screenHeight / 2;
         halfScreenWidth = screenWidth / 2;
