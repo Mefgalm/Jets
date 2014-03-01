@@ -77,8 +77,8 @@ public class Player {
         return hp;
     }
 
-    public void updateShells() {
-        shellContainer.update();
+    public void updateShells( Ship ship ) {
+        shellContainer.update( ship );
     }
 
     public void addShell( Shell shell ) {

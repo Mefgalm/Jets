@@ -21,9 +21,31 @@ public class Laser {
         this.y = (float) ( y - Math.sin( angle ) * ( 20 + image.getCenterOfRotationX() ) );
     }
 
-    public void draw() {
+    public Laser( float x, float y, Image image, float angle ) {
+        this.image = image;
+        this.angle = angle;
+        this.x = x;
+        this.y = y;
+    }
+
+    public void draw( Ship ship, WorldMap map ) {
         image.setRotation( (float) Math.toDegrees( -angle ) );
-        image.draw( x - image.getCenterOfRotationX(), y - image.getCenterOfRotationY() );
+        float dX = -image.getCenterOfRotationX(), dY = -image.getCenterOfRotationY();
+        if ( ship.getX() < ship.getHalfWidth() ) {
+            dX += x;
+        } else if ( ship.getX() >= map.getMapHeight() - ship.getHalfHeight() ) {
+            dX += x - map.getMapWidth() + ship.getWidth();
+        } else {
+            dX += x - ship.getShiftX();
+        }
+        if ( ship.getY() < ship.getHalfHeight() ) {
+            dY += y;
+        } else if ( ship.getY() >= map.getMapHeight() - ship.getHalfHeight() ) {
+            dY += y + ship.getHeight() - map.getMapHeight();
+        } else {
+            dY += y - ship.getShiftY();
+        }
+        image.draw( dX, dY );
     }
 
     @Override

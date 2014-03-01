@@ -49,6 +49,14 @@ public class WorldMap {
         return shiftY;
     }
 
+    public float getHalfHeight() {
+        return halfScreenHeight;
+    }
+
+    public float getHalfWidth() {
+        return halfScreenWidth;
+    }
+
     public int getMapWidth () {
         return image.getWidth();
     }

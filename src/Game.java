@@ -99,7 +99,7 @@ public class Game extends BasicGameState {
 
     private void updatePlayersShell() {
         for ( Map.Entry<Integer,Player> entry : playerMap.entrySet() ) {
-            entry.getValue().updateShells();
+            entry.getValue().updateShells( ship );
         }
     }
 
@@ -138,7 +138,7 @@ public class Game extends BasicGameState {
         calculate();
         stringList.clear();
         updatePlayersShell();
-        shellContainer.update();
+        shellContainer.update( ship );
         //graphics.drawString( ship.getRlX() + " " + ship.getRlY(), 0, 20 );
         graphics.drawString( String.valueOf( HP ), 0, 0 );
         if ( HP <= 0 ) {
@@ -256,8 +256,8 @@ public class Game extends BasicGameState {
                 playerMap.get( Integer.parseInt( splitLine[4] ) ).addLaser(
                         new Laser( Float.parseFloat( splitLine[1] ),
                                    Float.parseFloat( splitLine[2] ),
-                                   Float.parseFloat( splitLine[3] ),
-                                   laserImage.copy() ) );
+                                   laserImage.copy(),
+                                   Float.parseFloat( splitLine[3]) ) );
             }
         }
     }

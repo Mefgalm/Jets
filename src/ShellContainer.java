@@ -28,7 +28,7 @@ public class ShellContainer {
         laserList.add( laser );
     }
 
-    public void update () {
+    public void update ( Ship ship ) {
         for ( int i = 0; i < shellList.size(); i++ ) {
             if ( shellList.get( i ).move( ) ) {
                 shellList.get( i ).draw( map.getShiftX(), map.getShiftY() );
@@ -37,7 +37,7 @@ public class ShellContainer {
             }
         }
         for ( int i = 0; i < laserList.size(); i++ ) {
-            laserList.get( i ).draw();
+            laserList.get( i ).draw( ship, map );
             laserList.remove( laserList.get( i ) );
         }
     }

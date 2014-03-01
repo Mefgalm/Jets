@@ -12,7 +12,7 @@ public class HealSkill extends Skill {
 
     @Override
     public void use ( ShellContainer shellContainer, Server server, Ship ship ) {
-        Laser laser = new Laser( ship.getRlX(), ship.getRlY(), ship.getCurrentAngle(), Game.laserImage );
+        Laser laser = new Laser( ship.getX(), ship.getY(), ship.getCurrentAngle(), Game.laserImage );
         shellContainer.addLaser( laser );
         server.sendShell( Code.SEND_LASER, laser.toString() );
     }
