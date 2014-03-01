@@ -1,4 +1,6 @@
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Graphics;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,9 +17,11 @@ public class Player {
     private int hp;
     private ShellContainer shellContainer = new ShellContainer( Game.map );
     private Image image;
+    private Addon addon;
 
 
     public Player ( float x, float y, float angle, String nickname, Image image, int hp ) {
+        addon = new Addon( nickname, image );
         this.x = x;
         this.y = y;
         this.angle = angle;
@@ -26,7 +30,7 @@ public class Player {
         this.hp = hp;
     }
 
-    public void draw( Ship ship, WorldMap map ) {
+    public void draw( Ship ship, WorldMap map, Graphics g ) {
         image.setRotation( (float) Math.toDegrees( -angle ) );
         float dX = -image.getCenterOfRotationX(), dY = -image.getCenterOfRotationY();
         if ( ship.getX() < ship.getHalfWidth() ) {
@@ -43,6 +47,7 @@ public class Player {
         } else {
             dY += y - ship.getShiftY();
         }
+        addon.draw( dX, dY, g );
         image.draw( dX, dY );
     }
 
@@ -73,11 +78,15 @@ public class Player {
     }
 
     public void updateShells() {
-        shellContainer.updateShells();
+        shellContainer.update();
     }
 
     public void addShell( Shell shell ) {
         shellContainer.add( shell );
+    }
+
+    public void addLaser( Laser laser ) {
+        shellContainer.addLaser( laser );
     }
 
     public int collide( float x, float y ) {

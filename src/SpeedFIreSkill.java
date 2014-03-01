@@ -7,6 +7,10 @@
  */
 public class SpeedFIreSkill extends Skill {
 
+    public SpeedFIreSkill ( int FullCd ) {
+        super( FullCd );
+    }
+
     @Override
     public void use( ShellContainer shellContainer, Server server, Ship ship ) {
         Shell shell = new Shell( ship.getCurrentAngle(),   //Shell ( float currentAngle, float radius, float x, float y, int timeToDestroy, float speed, Image image )

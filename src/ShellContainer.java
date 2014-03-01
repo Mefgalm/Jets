@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class ShellContainer {
     private List<Shell> shellList = new LinkedList<Shell>(  );
+    private List<Laser> laserList = new LinkedList<Laser>(  );
     private AnimationContainer animationContainer = new AnimationContainer();
     private WorldMap map;
 
@@ -23,7 +24,11 @@ public class ShellContainer {
         shellList.add( shell );
     }
 
-    public void updateShells( ) {
+    public void addLaser ( Laser laser ) {
+        laserList.add( laser );
+    }
+
+    public void update () {
         for ( int i = 0; i < shellList.size(); i++ ) {
             if ( shellList.get( i ).move( ) ) {
                 shellList.get( i ).draw( map.getShiftX(), map.getShiftY() );
@@ -31,7 +36,10 @@ public class ShellContainer {
                 shellList.remove( shellList.get( i ) );
             }
         }
-        animationContainer.update();
+        for ( int i = 0; i < laserList.size(); i++ ) {
+            laserList.get( i ).draw();
+            laserList.remove( laserList.get( i ) );
+        }
     }
 
     public int isCollide ( float x, float y ) {

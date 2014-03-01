@@ -11,7 +11,6 @@ import org.newdawn.slick.Graphics;
  */
 public class Addon {
     private String name;
-    private int HPBar;
     private float relX;
     private float relY;
     public Addon( String name, Image image ) {

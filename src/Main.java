@@ -15,6 +15,8 @@ public class Main extends StateBasedGame {
     public final static int height = 700;
     public static AppGameContainer app;
 
+    public static Game gameState;
+
 
     public Main ( String name ) {
         super( name );
@@ -25,9 +27,10 @@ public class Main extends StateBasedGame {
             System.out.println( "Server is down" );
             System.exit( 0 );
         }
+        gameState = new Game( game, server );
         addState( new DeathScreen( deathScreen ) );
         addState( new Login( login, server ) );
-        addState( new Game( game, server ) );
+        addState( gameState );
     }
 
     public static void main(String [] arguments) {

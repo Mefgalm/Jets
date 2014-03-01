@@ -6,10 +6,15 @@
  * To change this template use File | Settings | File Templates.
  */
 public abstract class Skill {
+    private int FullCd = 0;
     private int cd = 0;
 
-    public void setCd( int cd ) {
-        this.cd = cd;
+    public Skill ( int FullCd )  {
+        this.FullCd = FullCd;
+    }
+
+    public void setFullCd() {
+        cd = FullCd;
     }
 
     public int getCd() {

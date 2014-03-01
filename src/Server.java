@@ -18,7 +18,7 @@ public class Server {
     public DataOutputStream streamOut;
 
     public Server( ) throws IOException {
-            socket = new Socket( "192.168.0.151", Code.PORT );
+            socket = new Socket( "127.0.0.1", Code.PORT );
             socket.setTcpNoDelay( true );
             streamIn = new DataInputStream( new BufferedInputStream( socket.getInputStream() ) );
             streamOut = new DataOutputStream( socket.getOutputStream() );
@@ -44,14 +44,6 @@ public class Server {
             streamOut.writeUTF( sb.toString() );
         } catch ( IOException ioEx ) {
             System.err.println( "Can't send new coordinates of ship" );
-        }
-    }
-
-    public String relieveData() throws IOException {
-        try {
-            return streamIn.readUTF();
-        } catch ( IOException ioEx ) {
-            throw new IOException();
         }
     }
 }
